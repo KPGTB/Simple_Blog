@@ -1,0 +1,95 @@
+@use "../assets/settings.scss";
+
+* {
+	margin: 0;
+}
+
+$headerHeight: max(355px, calc(0.184 * 100vw));
+$footerHeight: max(137px, calc(0.071 * 100vw));
+
+html {
+	color: settings.$textColor;
+	font-size: max(16px, calc(0.7vmax + 7px));
+}
+
+header {
+	width: 100%;
+	height: $headerHeight;
+	position: relative;
+
+	background-image: url("../assets/BlogBgTop.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+
+	text-align: center;
+
+	& > section {
+		width: 80%;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		font-size: 1.5rem;
+	}
+
+	& > a {
+		all: unset;
+		cursor: pointer;
+		border: solid 2px settings.$textColor;
+		border-radius: 10px;
+		padding: 10px;
+
+		position: absolute;
+		right: 1vw;
+		top: 1vw;
+
+		font-size: 0.75rem;
+		font-weight: bold;
+		transition: all 0.1s ease;
+
+		&:hover {
+			color: white;
+			border-color: white;
+			transform: scale(1.1);
+		}
+	}
+}
+
+footer {
+	width: 100%;
+	height: $footerHeight;
+	position: relative;
+
+	background-image: url("../assets/BlogBgDown.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+
+	text-align: center;
+
+	& > section {
+		width: 80%;
+
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		font-size: 0.8rem;
+
+		& > a {
+			all: unset;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	}
+}
+
+main {
+	min-height: calc(100vh - $headerHeight - $footerHeight);
+	min-height: calc(100dvh - $headerHeight - $footerHeight);
+	position: relative;
+}
