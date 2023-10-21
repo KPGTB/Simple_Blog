@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 .env
-ckeditor5/node_modules
+libs/ckeditor5/node_modules
