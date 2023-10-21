@@ -1,6 +1,6 @@
 "use client"
 
-import Editor from "@/ckeditor5/build/ckeditor"
+import Editor from "@/libs/ckeditor5/build/ckeditor"
 import {CKEditor} from "@ckeditor/ckeditor5-react"
 import {useEffect, useRef} from "react"
 
