@@ -1,8 +1,5 @@
 "use client"
-
-import Editor from "@/libs/ckeditor5/build/ckeditor"
-import {CKEditor} from "@ckeditor/ckeditor5-react"
-import {useEffect, useRef} from "react"
+import {useEffect, useRef, useState} from "react"
 
 type EditorProps = {
 	placeholder?: string
@@ -11,27 +8,42 @@ type EditorProps = {
 
 const ArticleContentEditor = (props: EditorProps) => {
 	const inputRef = useRef<any>()
+	const editorRef = useRef<any>()
+
+	const [editorLoaded, setEditorLoaded] = useState<boolean>(false)
+	const {CKEditor, Editor} = editorRef.current || {}
+
 	useEffect(() => {
-		inputRef.current.value = props.placeholder
+		editorRef.current = {
+			CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
+			Editor: require("@/libs/ckeditor5/build/ckeditor"),
+		}
+		setEditorLoaded(true)
 	}, [])
-	return (
+
+	return editorLoaded ? (
 		<>
 			<CKEditor
-				// @ts-ignore
 				editor={Editor}
 				data={props.placeholder}
+				// @ts-ignore
 				onChange={(event, editor) => {
-					// @ts-ignore
 					const data = editor.getData()
 					inputRef.current.value = data
 				}}
+				onReady={() => {
+					inputRef.current.value = props.placeholder
+				}}
 			/>
+
 			<input
 				name={props.name}
 				style={{display: "none"}}
 				ref={inputRef}
 			/>
 		</>
+	) : (
+		<>Loading editor...</>
 	)
 }
 
