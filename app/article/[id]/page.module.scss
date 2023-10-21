@@ -1,0 +1,64 @@
+@use "../../../assets/settings.scss";
+
+.container {
+	width: 80%;
+	margin: 5vh auto;
+
+	hr {
+		margin: 5vh auto;
+	}
+}
+
+.infoContainer {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5vw;
+
+	@media (max-width: 950px) {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.image {
+	width: 40%;
+	aspect-ratio: 16/9;
+	border: 3px solid settings.$primaryColor;
+
+	@media (max-width: 950px) {
+		width: 80%;
+	}
+}
+
+.data {
+	opacity: 0.6;
+}
+
+.description {
+	width: 100%;
+}
+
+.actionContainer {
+	display: flex;
+	gap: 1vw;
+
+	@media (max-width: 950px) {
+		justify-content: center;
+	}
+}
+
+.action {
+	all: unset;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.1s ease;
+
+	&:hover {
+		color: red;
+		transform: scale(1.1);
+	}
+}

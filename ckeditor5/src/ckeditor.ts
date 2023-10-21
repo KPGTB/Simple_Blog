@@ -98,6 +98,7 @@ class Editor extends ClassicEditor {
 				"blockQuote",
 				"insertTable",
 				"mediaEmbed",
+				"uploadImage",
 			],
 		},
 		language: "en",

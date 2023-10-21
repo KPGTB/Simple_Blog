@@ -35,19 +35,22 @@ header {
 		font-size: 1.5rem;
 	}
 
-	& > a {
+	& a {
 		all: unset;
 		cursor: pointer;
+	}
+
+	& > a {
 		border: solid 2px settings.$textColor;
 		border-radius: 10px;
 		padding: 10px;
 
+		font-size: 0.75rem;
+		font-weight: bold;
 		position: absolute;
 		right: 1vw;
 		top: 1vw;
 
-		font-size: 0.75rem;
-		font-weight: bold;
 		transition: all 0.1s ease;
 
 		&:hover {
@@ -92,4 +95,8 @@ main {
 	min-height: calc(100vh - $headerHeight - $footerHeight);
 	min-height: calc(100dvh - $headerHeight - $footerHeight);
 	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

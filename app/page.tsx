@@ -1,102 +1,47 @@
 import Link from "next/link.js"
 import styles from "./page.module.scss"
 import {FaUser, FaCalendar, FaPlus} from "react-icons/fa"
+import connect from "@/libs/mongodb"
+import Article, {ArticleType} from "@/models/Article"
+import ArticleImage from "@/components/ArticleImage"
 
-const getPosts = async () => {
-	return [
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title v2 XD Ele This is the example bery big title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-		{
-			_id: "a341acv",
-			title: "Example Title",
-			image: "https://i.imgur.com/WD7zFrL.png",
-			author: "KPG-TB",
-			createdAt: "2023-07-18 17:00",
-		},
-	]
+const getArticles = async () => {
+	await connect()
+	const articles: ArticleType[] = await Article.find().sort({createdAt: -1})
+	return articles
 }
 
 export default async function Home() {
-	const posts = await getPosts()
+	const articles: ArticleType[] = await getArticles()
 
 	return (
 		<article className={styles.container}>
-			{posts.map((post) => {
+			{articles.map((article) => {
 				return (
 					<section
-						key={post._id}
+						key={article._id.toString()}
 						className={styles.post}
 					>
-						<img
-							src={post.image}
-							alt={post.title}
+						<ArticleImage
+							src={article.image}
+							alt={article.title}
 						/>
 						<section className={styles.postInfo}>
 							<section>
-								<FaUser /> {post.author}
+								<FaUser />
+								{article.author}
 							</section>
 							<section>
-								<FaCalendar /> {post.createdAt}
+								<FaCalendar />{" "}
+								{new Date(article.createdAt.toString())
+									.toLocaleString()
+									.replace(",", "")}
 							</section>
 						</section>
 						<section className={styles.postTitle}>
-							{post.title}
+							{article.title}
 						</section>
-						<Link href={`/${post._id}`}>Read</Link>
+						<Link href={`/article/${article._id}`}>Read</Link>
 					</section>
 				)
 			})}

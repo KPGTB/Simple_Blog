@@ -1,7 +1,7 @@
 import "./globals.scss"
+import "./editor_style.css"
 import type {Metadata} from "next"
 import {Barlow_Condensed, Lato} from "next/font/google"
-import Image from "next/image"
 import Link from "next/link"
 
 const barlow = Barlow_Condensed({weight: "400", subsets: ["latin"]})
@@ -18,7 +18,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<body>
 				<header className={barlow.className}>
 					<section>
-						<h1>Simple Blog</h1>
+						<Link href={"/"}>
+							<h1>Simple Blog</h1>
+						</Link>
 						<p>
 							Simple Blog App created by KPG-TB using NextJS,
 							TypeScript, SASS and MongoDB

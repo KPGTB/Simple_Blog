@@ -3,28 +3,45 @@
 .container {
 	width: 80%;
 	margin: 5vh auto;
-	display: flex;
-	flex-wrap: wrap;
-	row-gap: 5vh;
 	text-align: center;
 
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 1fr;
+	gap: 5vh;
+
+	@media (max-width: 700px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	@media (max-width: 1100px) and (min-width: 650px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 1300px) and (min-width: 1100px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	/*display: flex;
+	flex-wrap: wrap;
+	row-gap: 5vh;
+
 	column-gap: calc((20% - 24px) / 3);
+
 	@media (max-width: 700px) {
 		column-gap: 0;
 	}
 
 	@media (max-width: 1100px) and (min-width: 650px) {
-		flex-basis: 40%;
 		column-gap: calc(20% - 12px);
 	}
 
 	@media (max-width: 1300px) and (min-width: 1100px) {
-		flex-basis: 25%;
 		column-gap: calc((25% - 18px) / 2);
-	}
+	}*/
 }
 
-.post,
+/*.post,
 .addPost {
 	flex-grow: 0;
 	flex-shrink: 0;
@@ -41,7 +58,7 @@
 	@media (max-width: 1300px) and (min-width: 1100px) {
 		flex-basis: 25%;
 	}
-}
+}*/
 
 .post {
 	border: solid settings.$primaryColor 3px;
@@ -55,6 +72,7 @@
 	img {
 		width: 100%;
 		border-bottom: solid settings.$primaryColor 3px;
+		aspect-ratio: 16/9;
 	}
 
 	a {
@@ -83,6 +101,13 @@
 	display: flex;
 	justify-content: space-between;
 	width: 90%;
+
+	section {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
 }
 
 .postTitle {
