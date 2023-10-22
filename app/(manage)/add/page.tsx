@@ -4,14 +4,17 @@ import connect from "@/libs/mongodb"
 import Article from "@/models/Article"
 import {redirect} from "next/navigation"
 import ImageInput from "@/components/ImageInput"
+import {authOptions} from "@/app/api/auth/[...nextauth]/route"
+import {getServerSession} from "next-auth/next"
 
 const AddArticle = async (data: FormData) => {
 	"use server"
+	const session = await getServerSession(authOptions)
 	await connect()
 	await Article.create({
 		title: data.get("title"),
 		image: data.get("image"),
-		author: "KPG-TB",
+		author: session?.user.fullName,
 		description: data.get("editor"),
 	})
 	redirect("/")

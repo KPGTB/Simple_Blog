@@ -3,6 +3,10 @@ import "./editor_style.css"
 import type {Metadata} from "next"
 import {Barlow_Condensed, Lato} from "next/font/google"
 import Link from "next/link"
+import Login from "@/components/LoginComponent"
+import Logout from "@/components/LogoutComponent"
+import {authOptions} from "./api/auth/[...nextauth]/route"
+import {getServerSession} from "next-auth/next"
 
 const barlow = Barlow_Condensed({weight: "400", subsets: ["latin"]})
 const lato = Lato({weight: "400", subsets: ["latin"]})
@@ -12,7 +16,12 @@ export const metadata: Metadata = {
 	description: "Simple Blog App created by KPG-TB. Preview Version",
 }
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default async function RootLayout({
+	children,
+}: {
+	children: React.ReactNode
+}) {
+	const session = await getServerSession(authOptions)
 	return (
 		<html lang="en">
 			<body>
@@ -27,7 +36,17 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 						</p>
 					</section>
 
-					<Link href={"/login"}>Login</Link>
+					{session?.user ? (
+						<Logout
+							className="login"
+							label="Sign Out"
+						/>
+					) : (
+						<Login
+							className="login"
+							label="Sign In"
+						/>
+					)}
 				</header>
 				<main className={lato.className}>{children}</main>
 				<footer className={barlow.className}>

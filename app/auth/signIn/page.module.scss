@@ -1,0 +1,67 @@
+@use "../../../assets/settings.scss";
+
+@mixin inputMixin() {
+	height: 4vh;
+	text-align: center;
+	border: solid 1px settings.$textColor;
+	border-radius: 20px;
+	padding-inline: 10px;
+
+	transition: all 0.1s ease;
+	&:focus {
+		border-color: settings.$primaryColor;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2vh;
+	width: 80%;
+
+	&.errorContainer > .input {
+		border: solid 1px darkred !important;
+	}
+}
+
+.input {
+	@include inputMixin();
+	width: 30%;
+
+	@media (max-width: 700px) {
+		width: 80%;
+	}
+
+	@media (max-width: 1100px) and (min-width: 650px) {
+		width: 60%;
+	}
+
+	@media (max-width: 1300px) and (min-width: 1100px) {
+		width: 40%;
+	}
+}
+
+.submit {
+	all: unset;
+	cursor: pointer;
+	border: solid 2px settings.$textColor;
+	border-radius: 10px;
+	padding: 10px;
+
+	font-size: 0.75rem;
+	font-weight: bold;
+
+	transition: all 0.1s ease;
+
+	&:hover {
+		color: settings.$primaryColor;
+		border-color: settings.$primaryColor;
+		transform: scale(1.1);
+	}
+}
+
+.error {
+	color: darkred;
+}

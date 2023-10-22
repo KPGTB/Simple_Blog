@@ -4,6 +4,9 @@ import {FaUser, FaCalendar, FaPlus} from "react-icons/fa"
 import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
 import ArticleImage from "@/components/ArticleImage"
+import {hasAccess} from "@/libs/credentials"
+
+export const dynamic = "force-dynamic"
 
 const getArticles = async () => {
 	await connect()
@@ -13,6 +16,7 @@ const getArticles = async () => {
 
 export default async function Home() {
 	const articles: ArticleType[] = await getArticles()
+	const access = await hasAccess()
 
 	return (
 		<article className={styles.container}>
@@ -46,12 +50,14 @@ export default async function Home() {
 				)
 			})}
 
-			<Link
-				href={"/add"}
-				className={styles.addPost}
-			>
-				<FaPlus />
-			</Link>
+			{access && (
+				<Link
+					href={"/add"}
+					className={styles.addPost}
+				>
+					<FaPlus />
+				</Link>
+			)}
 		</article>
 	)
 }

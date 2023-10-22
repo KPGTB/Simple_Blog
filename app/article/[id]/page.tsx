@@ -5,6 +5,9 @@ import {FaCalendar, FaPen, FaTrash, FaUser} from "react-icons/fa"
 import styles from "./page.module.scss"
 import Link from "next/link"
 import {redirect} from "next/navigation"
+import {hasAccess} from "@/libs/credentials"
+
+export const dynamic = "force-dynamic"
 
 const getArticle = async (id: string) => {
 	await connect()
@@ -12,21 +15,32 @@ const getArticle = async (id: string) => {
 	try {
 		data = await Article.findById(id)
 	} catch (error) {
-		throw new TypeError("Can't find article with that id")
+		redirect("/")
+		return null
 	}
 	if (data === null) {
-		throw new TypeError("Can't find article with that id")
+		redirect("/")
+		return null
 	}
 	return data
 }
 
 const removeArticle = async (id: string) => {
+	const access = await hasAccess()
+	if (!access) {
+		return
+	}
 	await connect()
 	await Article.findByIdAndDelete(id)
 }
 
 const Page = async ({params}: {params: {id: string}}) => {
-	const article: ArticleType = await getArticle(params.id)
+	const article: ArticleType | null = await getArticle(params.id)
+	const access = await hasAccess()
+
+	if (article == null) {
+		return ""
+	}
 	return (
 		<article className={styles.container}>
 			<section className={styles.infoContainer}>
@@ -48,27 +62,31 @@ const Page = async ({params}: {params: {id: string}}) => {
 							.replace(",", "")}
 					</section>
 					<br />
-					<section
-						className={styles.data + " " + styles.actionContainer}
-					>
-						<Link
-							href={"/edit/" + params.id}
-							className={styles.action}
+					{access && (
+						<section
+							className={
+								styles.data + " " + styles.actionContainer
+							}
 						>
-							<FaPen />
-						</Link>
-						<form
-							action={async () => {
-								"use server"
-								await removeArticle(params.id)
-								redirect("/")
-							}}
-						>
-							<button className={styles.action}>
-								<FaTrash />
-							</button>
-						</form>
-					</section>
+							<Link
+								href={"/edit/" + params.id}
+								className={styles.action}
+							>
+								<FaPen />
+							</Link>
+							<form
+								action={async () => {
+									"use server"
+									await removeArticle(params.id)
+									redirect("/")
+								}}
+							>
+								<button className={styles.action}>
+									<FaTrash />
+								</button>
+							</form>
+						</section>
+					)}
 				</section>
 			</section>
 

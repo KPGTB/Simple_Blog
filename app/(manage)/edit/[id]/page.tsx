@@ -5,16 +5,20 @@ import Article, {ArticleType} from "@/models/Article"
 import {redirect} from "next/navigation"
 import ImageInput from "@/components/ImageInput"
 
+export const dynamic = "force-dynamic"
+
 const getArticle = async (id: string) => {
 	await connect()
 	let data: ArticleType | null
 	try {
 		data = await Article.findById(id)
 	} catch (error) {
-		throw new TypeError("Can't find article with that id")
+		redirect("/")
+		return null
 	}
 	if (data === null) {
-		throw new TypeError("Can't find article with that id")
+		redirect("/")
+		return null
 	}
 	return data
 }
@@ -31,6 +35,9 @@ const EditArticle = async (data: FormData, id: string) => {
 const Page = async ({params}: {params: {id: string}}) => {
 	const article = await getArticle(params.id)
 
+	if (article == null) {
+		return ""
+	}
 	return (
 		<section className={styles.container}>
 			<h2>Edit article</h2>
