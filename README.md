@@ -1,5 +1,6 @@
 # .env
 
+```
 MONGODB_URI=
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=
@@ -7,3 +8,4 @@ CREATE_ADMIN=true
 ADMIN_FULL=Administrator
 ADMIN_LOGIN=admin
 ADMIN_PASSWORD=admin
+```
