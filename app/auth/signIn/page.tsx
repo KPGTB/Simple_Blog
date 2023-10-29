@@ -1,14 +1,15 @@
 "use client"
 
 import {signIn} from "next-auth/react"
-import styles from "./page.module.scss"
+import styles from "../page.module.scss"
 import {useSearchParams} from "next/navigation"
+import Link from "next/link"
 
 const handleForm = async (e: any) => {
 	e.preventDefault()
 	const data = new FormData(e.target)
 	await signIn("credentials", {
-		username: data.get("username"),
+		email: data.get("email"),
 		password: data.get("password"),
 		redirect: true,
 		callbackUrl: "/",
@@ -17,8 +18,7 @@ const handleForm = async (e: any) => {
 
 const Page = () => {
 	const params = useSearchParams()
-	const error = params.get("error")
-	const hasError: boolean = error !== null
+	const hasError: boolean = params.has("error")
 
 	return (
 		<form
@@ -31,8 +31,8 @@ const Page = () => {
 		>
 			<h2>Login to your account</h2>
 			<input
-				name="username"
-				placeholder="Username"
+				name="email"
+				placeholder="user@example.com"
 				className={styles.input}
 				required
 			/>
@@ -43,11 +43,16 @@ const Page = () => {
 				className={styles.input}
 				required
 			/>
-			<button className={styles.submit}>Sign In</button>
 
 			{hasError && (
 				<section className={styles.error}>Wrong credentials!</section>
 			)}
+
+			<button className={styles.submit}>Sign In</button>
+
+			<p className={styles.wrongForm}>
+				Don't have account? <Link href={"/auth/signUp"}>Create it</Link>
+			</p>
 		</form>
 	)
 }

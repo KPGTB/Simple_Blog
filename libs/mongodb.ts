@@ -1,6 +1,7 @@
 import User from "@/models/User"
 import mongoose from "mongoose"
 import {hashPassword} from "./bcrypt"
+import UserRole from "@/types/UserRole"
 
 let first = true
 
@@ -16,16 +17,18 @@ const connect = async () => {
 		) {
 			first = false
 			const admin = await User.findOne({
-				username: process.env.ADMIN_LOGIN,
+				email: process.env.ADMIN_EMAIL,
 			})
 			if (!admin) {
-				const login = process.env.ADMIN_LOGIN
+				const email = process.env.ADMIN_EMAIL
+				const fullName = process.env.ADMIN_FULL
 				const pass = await hashPassword(process.env.ADMIN_PASSWORD)
 				await User.create({
-					username: login,
+					email: email,
 					password: pass,
-					role: "admin",
-					fullName: process.env.ADMIN_FULL,
+					role: UserRole.ADMIN,
+					fullName: fullName,
+					activated: true,
 				})
 				console.log("Created Admin")
 			}

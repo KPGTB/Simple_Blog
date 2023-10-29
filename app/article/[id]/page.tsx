@@ -6,6 +6,7 @@ import styles from "./page.module.scss"
 import Link from "next/link"
 import {redirect} from "next/navigation"
 import {hasAccess} from "@/libs/credentials"
+import UserRole from "@/types/UserRole"
 
 export const dynamic = "force-dynamic"
 
@@ -26,7 +27,7 @@ const getArticle = async (id: string) => {
 }
 
 const removeArticle = async (id: string) => {
-	const access = await hasAccess()
+	const access = await hasAccess(UserRole.EDITOR, UserRole.ADMIN)
 	if (!access) {
 		return
 	}
@@ -36,7 +37,7 @@ const removeArticle = async (id: string) => {
 
 const Page = async ({params}: {params: {id: string}}) => {
 	const article: ArticleType | null = await getArticle(params.id)
-	const access = await hasAccess()
+	const access = await hasAccess(UserRole.EDITOR, UserRole.ADMIN)
 
 	if (article == null) {
 		return ""

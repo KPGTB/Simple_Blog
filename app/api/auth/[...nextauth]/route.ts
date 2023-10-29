@@ -11,10 +11,10 @@ const authOptions = {
 		Credentials({
 			name: "E-Mail",
 			credentials: {
-				username: {
-					label: "Username",
+				email: {
+					label: "E-Mail",
 					type: "text",
-					placeholder: "username",
+					placeholder: "user@example.com",
 				},
 				password: {label: "Password", type: "password"},
 			},
@@ -23,9 +23,9 @@ const authOptions = {
 					return null
 				}
 
-				const {username, password} = credentials
+				const {email, password} = credentials
 
-				if (username == null || password == null) {
+				if (email == null || password == null) {
 					return null
 				}
 
@@ -33,7 +33,8 @@ const authOptions = {
 				const user: {_id: ObjectId; password: string} | null =
 					await User.findOne(
 						{
-							username: username,
+							email: email,
+							activated: true,
 						},
 						{password: 1}
 					)

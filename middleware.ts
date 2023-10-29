@@ -1,12 +1,13 @@
 import {withAuth} from "next-auth/middleware"
 import {NextResponse} from "next/server"
+import UserRole from "./types/UserRole"
 
 export default withAuth(
 	function middleware(req) {
 		const path = req.nextUrl.pathname
 		const token = req.nextauth.token
 
-		if (path === "/auth/signIn" && token !== null) {
+		if (isOnlyForUnauthorized(path) && token !== null) {
 			return NextResponse.redirect(new URL("/", req.url))
 		}
 	},
@@ -14,14 +15,27 @@ export default withAuth(
 		callbacks: {
 			authorized: ({token, req}) => {
 				const path = req.nextUrl.pathname
-				if (path === "/auth/signIn") {
+				if (isOnlyForUnauthorized(path)) {
 					return true
 				}
 
-				return token !== null
+				return token !== null && token.userData.role !== UserRole.USER
 			},
 		},
 	}
 )
 
-export const config = {matcher: ["/add", "/edit/:id*", "/auth/signIn"]}
+const isOnlyForUnauthorized = (path: string) => {
+	return path.startsWith("/auth")
+}
+
+export const config = {
+	matcher: [
+		"/add",
+		"/edit/:id*",
+		"/auth/signIn",
+		"/auth/signUp",
+		"/auth/signUp/activate",
+		"/auth/signUp/activate/:hash*",
+	],
+}

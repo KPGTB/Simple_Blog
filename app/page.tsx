@@ -5,6 +5,7 @@ import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
 import ArticleImage from "@/components/ArticleImage"
 import {hasAccess} from "@/libs/credentials"
+import UserRole from "@/types/UserRole"
 
 export const dynamic = "force-dynamic"
 
@@ -16,7 +17,7 @@ const getArticles = async () => {
 
 export default async function Home() {
 	const articles: ArticleType[] = await getArticles()
-	const access = await hasAccess()
+	const access = await hasAccess(UserRole.EDITOR, UserRole.ADMIN)
 
 	return (
 		<article className={styles.container}>

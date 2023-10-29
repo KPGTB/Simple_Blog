@@ -1,4 +1,4 @@
-@use "../../../assets/settings.scss";
+@use "/assets/settings.scss";
 
 @mixin inputMixin() {
 	height: 4vh;
@@ -13,21 +13,7 @@
 	}
 }
 
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 2vh;
-	width: 80%;
-
-	&.errorContainer > .input {
-		border: solid 1px darkred !important;
-	}
-}
-
-.input {
-	@include inputMixin();
+@mixin inputSize() {
 	width: 30%;
 
 	@media (max-width: 700px) {
@@ -40,6 +26,53 @@
 
 	@media (max-width: 1300px) and (min-width: 1100px) {
 		width: 40%;
+	}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2vh;
+	width: 80%;
+
+	&.errorContainer .input {
+		border: solid 1px darkred !important;
+	}
+}
+
+.input {
+	@include inputMixin();
+	@include inputSize();
+}
+
+.passwordContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.passwordChecks {
+	font-size: 0.75rem;
+
+	overflow: hidden;
+	transition: all 0.2s linear;
+
+	&:global(.hide) {
+		height: 0;
+		transform: scaleY(0);
+		opacity: 0;
+	}
+
+	&:global(.show) {
+		margin-top: 2vh;
+
+		height: auto;
+		transform: scaleY(1);
+		opacity: 1;
 	}
 }
 
@@ -62,6 +95,11 @@
 	}
 }
 
+.wrongForm,
+.error,
+.rules {
+	font-size: 0.75rem;
+}
 .error {
 	color: darkred;
 }
