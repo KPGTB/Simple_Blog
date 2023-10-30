@@ -51,6 +51,8 @@ export default async function RootLayout({
 				<main className={lato.className}>{children}</main>
 				<footer className={barlow.className}>
 					<section>
+						<Link href={"/tos"}>Terms of Service</Link>
+						<br />
 						Simple Blog App |{" "}
 						<a
 							href="https://kpgtb.pl/"

@@ -94,11 +94,14 @@ footer {
 }
 
 main {
-	min-height: calc(100vh - $headerHeight - $footerHeight);
-	min-height: calc(100dvh - $headerHeight - $footerHeight);
+	min-height: calc(90vh - $headerHeight - $footerHeight);
+	min-height: calc(90dvh - $headerHeight - $footerHeight);
 	position: relative;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	padding-top: 5vh;
+	padding-bottom: 5vh;
 }

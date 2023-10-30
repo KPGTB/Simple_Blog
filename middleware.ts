@@ -19,6 +19,10 @@ export default withAuth(
 					return true
 				}
 
+				if (isOnlyForAdmin(path)) {
+					return token?.userData.role === UserRole.ADMIN
+				}
+
 				return token !== null && token.userData.role !== UserRole.USER
 			},
 		},
@@ -29,6 +33,10 @@ const isOnlyForUnauthorized = (path: string) => {
 	return path.startsWith("/auth")
 }
 
+const isOnlyForAdmin = (path: string) => {
+	return path === "/tos/edit"
+}
+
 export const config = {
 	matcher: [
 		"/add",
@@ -37,5 +45,6 @@ export const config = {
 		"/auth/signUp",
 		"/auth/signUp/activate",
 		"/auth/signUp/activate/:hash*",
+		"/tos/edit",
 	],
 }

@@ -1,0 +1,45 @@
+@use "/assets/settings.scss";
+
+.container {
+	text-align: center;
+	width: 100%;
+	h2 {
+		margin-bottom: 5vh;
+	}
+}
+
+.form {
+	width: 85%;
+
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 5vh;
+
+	:global(.ck-editor) {
+		width: 100% !important;
+	}
+}
+
+.submit {
+	all: unset;
+	cursor: pointer;
+	border: solid 2px settings.$textColor;
+	border-radius: 10px;
+	padding: 10px;
+
+	font-size: 0.75rem;
+	font-weight: bold;
+
+	transition: all 0.1s ease;
+
+	&:hover {
+		color: settings.$primaryColor;
+		border-color: settings.$primaryColor;
+		transform: scale(1.1);
+	}
+}

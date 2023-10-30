@@ -11,4 +11,5 @@ ADMIN_PASSWORD=admin
 SMTP_URL=smtps://<username>:<password>@<smtp_server>/?pool=true
 SMTP_SENDER=
 RECAPTCHA_SECRET=
+RECAPTCHA_PUBLIC=
 ```

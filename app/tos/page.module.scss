@@ -1,0 +1,30 @@
+.container {
+	width: 85%;
+	margin-inline: auto;
+}
+
+.title {
+	text-align: center;
+}
+
+.data {
+	opacity: 0.6;
+	text-align: center;
+}
+
+.line {
+	width: 60%;
+	margin: 5vh auto;
+}
+
+.action {
+	all: unset;
+	cursor: pointer;
+	transition: all 0.1s ease;
+	font-size: 1rem;
+
+	&:hover {
+		color: red;
+		transform: scale(1.1);
+	}
+}
