@@ -1,6 +1,7 @@
 import {createTransport} from "nodemailer"
+import {promises as fs} from "fs"
 
-const sendActivationEmail = (hash: string, email: string) => {
+const sendActivationEmail = async (hash: string, email: string) => {
 	const transporter = createTransport(process.env.SMTP_URL)
 	const file = await fs.readFile(
 		process.cwd() + "/assets/email.json",
