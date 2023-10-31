@@ -61,3 +61,67 @@
 		transform: scale(1.1);
 	}
 }
+
+.comments {
+	width: 100%;
+	flex-direction: column;
+	display: flex;
+	gap: 2.5vh;
+}
+
+.comment {
+	width: 100%;
+	font-size: 0.9rem;
+	border-left: solid 2px settings.$secondaryColor;
+	padding: 1vw;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.removeComment {
+	margin-left: 0.5vw;
+}
+
+.icon {
+	margin-right: 0.5vw;
+}
+
+.commentText {
+	all: unset;
+	height: 8vh;
+	border: solid 1px settings.$textColor;
+	border-radius: 10px;
+	padding: 10px;
+
+	transition: all 0.1s ease;
+	&:focus {
+		border-color: settings.$primaryColor;
+	}
+}
+
+.send {
+	all: unset;
+	cursor: pointer;
+	border: solid 2px settings.$textColor;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 2.5vh;
+	width: fit-content;
+
+	font-size: 0.75rem;
+	font-weight: bold;
+
+	transition: all 0.1s ease;
+
+	&:hover {
+		color: settings.$primaryColor;
+		border-color: settings.$primaryColor;
+		transform: scale(1.1);
+	}
+}
+
+.username {
+	display: flex;
+	font-weight: bold;
+}

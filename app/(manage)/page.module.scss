@@ -1,6 +1,7 @@
 @use "/assets/settings.scss";
 
 @mixin inputMixin() {
+	all: unset;
 	height: 4vh;
 	text-align: center;
 	border: solid 1px settings.$textColor;
@@ -51,9 +52,8 @@
 }
 
 .title {
-	all: unset;
-	width: 100%;
 	@include inputMixin();
+	width: 100%;
 }
 
 .submit {
@@ -82,7 +82,7 @@
 }
 
 .imageInput {
-	width: 40%;
+	width: calc(100% - 20px);
 	@include inputMixin();
 }
 
@@ -90,5 +90,35 @@
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
+}
+
+.inputs {
+	width: 40%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.fileContainer {
+	border: 1px solid settings.$textColor;
+	width: 100%;
+}
+
+.file {
+	width: 100%;
+	&::file-selector-button {
+		cursor: pointer;
+		color: #000;
+		border: 0px;
+		border-right: 1px solid settings.$textColor;
+		padding: 10px 15px;
+		margin-right: 20px;
+		transition: 0.3s;
+
+		&:hover {
+			color: settings.$secondaryColor;
+		}
+	}
 }

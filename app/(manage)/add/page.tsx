@@ -42,8 +42,11 @@ const Page = () => {
 					imageClass={styles.image}
 					inputClass={styles.imageInput}
 					imageLabel="Image of article"
-					inputPlaceholder="Image"
+					inputPlaceholder="Image URL"
 					sectionClass={styles.imageContainer}
+					fileClass={styles.file}
+					inputsContainerClass={styles.inputs}
+					fileContainerClass={styles.fileContainer}
 				/>
 
 				<Editor

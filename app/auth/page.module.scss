@@ -1,6 +1,7 @@
 @use "/assets/settings.scss";
 
 @mixin inputMixin() {
+	all: unset;
 	height: 4vh;
 	text-align: center;
 	border: solid 1px settings.$textColor;
