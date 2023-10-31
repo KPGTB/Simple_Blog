@@ -23,6 +23,11 @@ const handleForm = async (data: FormData) => {
 		return
 	}
 
+	if (name!.length > 32 || name!.length < 4) {
+		redirect("/auth/signUp?error=Name length must be between 4 and 32!")
+		return
+	}
+
 	const passCheck = new RegExp(
 		"((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{8,20})"
 	)
@@ -83,6 +88,8 @@ const Page = ({searchParams}: {searchParams: {error?: string}}) => {
 				name="name"
 				placeholder="Full Name"
 				className={styles.input}
+				minLength={4}
+				maxLength={32}
 				required
 			/>
 			<PasswordValidator

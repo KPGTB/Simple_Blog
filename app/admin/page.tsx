@@ -52,6 +52,9 @@ const remove = async (data: FormData) => {
 
 const editEmail = async (data: FormData) => {
 	"use server"
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const title = data.get("title")
 	const content = data.get("editor")
 	const json = {
@@ -96,7 +99,9 @@ const Page = async () => {
 									</span>
 									<br />
 									<span className={styles.extra}>
-										{user.email}
+										{process.env.PREVIEW === "TRUE"
+											? "Email Hidden (Preview)"
+											: user.email}
 									</span>
 								</section>
 
@@ -157,7 +162,21 @@ const Page = async () => {
 						placeholder={emailJson.content}
 						name="editor"
 					/>
-					<button className={styles.button}>Save</button>
+					{process.env.PREVIEW === "TRUE" && (
+						<span style={{fontSize: ".8rem"}}>
+							This option is disabled in preview mode
+						</span>
+					)}
+					<button
+						className={styles.button}
+						title={
+							process.env.PREVIEW === "TRUE"
+								? "This option is disabled in Preview Mode"
+								: ""
+						}
+					>
+						Save
+					</button>
 				</form>
 			</section>
 		</article>

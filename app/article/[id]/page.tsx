@@ -38,6 +38,9 @@ const getComments = async (id: string) => {
 }
 
 const removeArticle = async (id: string) => {
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const access = await hasAccess(UserRole.EDITOR, UserRole.ADMIN)
 	if (!access) {
 		return
@@ -48,6 +51,9 @@ const removeArticle = async (id: string) => {
 
 const sendComment = async (data: FormData) => {
 	"use server"
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const access = await hasAccess()
 	if (!access) {
 		return
@@ -73,7 +79,9 @@ const sendComment = async (data: FormData) => {
 
 const removeComment = async (data: FormData) => {
 	"use server"
-
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const id = data.get("id")
 	const comment = await Comment.findById(id)
 
@@ -137,11 +145,21 @@ const Page = async ({params}: {params: {id: string}}) => {
 							<form
 								action={async () => {
 									"use server"
+									if (process.env.PREVIEW === "TRUE") {
+										return
+									}
 									await removeArticle(params.id)
 									redirect("/")
 								}}
 							>
-								<button className={styles.action}>
+								<button
+									className={styles.action}
+									title={
+										process.env.PREVIEW === "TRUE"
+											? "This option is disabled in Preview Mode"
+											: ""
+									}
+								>
 									<FaTrash />
 								</button>
 							</form>
@@ -179,7 +197,21 @@ const Page = async ({params}: {params: {id: string}}) => {
 							minLength={10}
 							className={styles.commentText}
 						></textarea>
-						<button className={styles.send}>Send</button>
+						{process.env.PREVIEW === "TRUE" && (
+							<span style={{fontSize: ".8rem"}}>
+								This option is disabled in preview mode
+							</span>
+						)}
+						<button
+							className={styles.send}
+							title={
+								process.env.PREVIEW === "TRUE"
+									? "This option is disabled in Preview Mode"
+									: ""
+							}
+						>
+							Send
+						</button>
 					</form>
 				)}
 
@@ -209,6 +241,11 @@ const Page = async ({params}: {params: {id: string}}) => {
 												styles.action +
 												" " +
 												styles.removeComment
+											}
+											title={
+												process.env.PREVIEW === "TRUE"
+													? "This option is disabled in Preview Mode"
+													: ""
 											}
 										>
 											<FaTrash className={styles.data} />

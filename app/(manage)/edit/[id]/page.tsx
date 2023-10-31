@@ -24,6 +24,9 @@ const getArticle = async (id: string) => {
 }
 
 const EditArticle = async (data: FormData, id: string) => {
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	await connect()
 	await Article.findByIdAndUpdate(id, {
 		title: data.get("title"),
@@ -76,9 +79,19 @@ const Page = async ({params}: {params: {id: string}}) => {
 					placeholder={article.description}
 					name="editor"
 				/>
+				{process.env.PREVIEW === "TRUE" && (
+					<span style={{fontSize: ".8rem"}}>
+						This option is disabled in preview mode
+					</span>
+				)}
 				<button
 					className={styles.submit}
 					aria-label="Edit article"
+					title={
+						process.env.PREVIEW === "TRUE"
+							? "This option is disabled in Preview Mode"
+							: ""
+					}
 				>
 					Edit article
 				</button>

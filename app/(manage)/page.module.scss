@@ -82,8 +82,8 @@
 }
 
 .imageInput {
-	width: calc(100% - 20px);
 	@include inputMixin();
+	width: calc(100% - 20px);
 }
 
 .imageContainer {

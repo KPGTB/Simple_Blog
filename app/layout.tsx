@@ -67,6 +67,14 @@ export default async function RootLayout({
 					<section>
 						<Link href={"/tos"}>Terms of Service</Link>
 						<br />
+						{process.env.PREVIEW === "TRUE" && (
+							<>
+								Preview Mode Enabled. Admin credentials:{" "}
+								{process.env.ADMIN_EMAIL}{" "}
+								{process.env.ADMIN_PASSWORD}
+								<br />
+							</>
+						)}
 						Simple Blog App |{" "}
 						<a
 							href="https://kpgtb.pl/"

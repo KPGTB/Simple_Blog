@@ -9,6 +9,9 @@ import {getServerSession} from "next-auth/next"
 
 const AddArticle = async (data: FormData) => {
 	"use server"
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const session = await getServerSession(authOptions)
 	await connect()
 	await Article.create({
@@ -53,9 +56,19 @@ const Page = () => {
 					placeholder="Article content"
 					name="editor"
 				/>
+				{process.env.PREVIEW === "TRUE" && (
+					<span style={{fontSize: ".8rem"}}>
+						This option is disabled in preview mode
+					</span>
+				)}
 				<button
 					className={styles.submit}
 					aria-label="Add article"
+					title={
+						process.env.PREVIEW === "TRUE"
+							? "This option is disabled in Preview Mode"
+							: ""
+					}
 				>
 					Add article
 				</button>

@@ -5,6 +5,9 @@ import {redirect} from "next/navigation"
 
 const edit = async (data: FormData) => {
 	"use server"
+	if (process.env.PREVIEW === "TRUE") {
+		return
+	}
 	const content = data.get("editor")
 	const json = {
 		lastUpdate: Date.now(),
@@ -35,9 +38,20 @@ const Page = async () => {
 					placeholder={json.content}
 					name="editor"
 				/>
+
+				{process.env.PREVIEW === "TRUE" && (
+					<span style={{fontSize: ".8rem"}}>
+						This option is disabled in preview mode
+					</span>
+				)}
 				<button
 					className={styles.submit}
 					aria-label="Edit TOS"
+					title={
+						process.env.PREVIEW === "TRUE"
+							? "This option is disabled in Preview Mode"
+							: ""
+					}
 				>
 					Edit TOS
 				</button>
