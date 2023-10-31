@@ -7,6 +7,8 @@ import Login from "@/components/LoginComponent"
 import Logout from "@/components/LogoutComponent"
 import {authOptions} from "./api/auth/[...nextauth]/route"
 import {getServerSession} from "next-auth/next"
+import UserRole from "@/types/UserRole"
+import {FaGear} from "react-icons/fa6"
 
 const barlow = Barlow_Condensed({weight: "400", subsets: ["latin"]})
 const lato = Lato({weight: "400", subsets: ["latin"]})
@@ -26,7 +28,7 @@ export default async function RootLayout({
 		<html lang="en">
 			<body>
 				<header className={barlow.className}>
-					<section>
+					<section className="main">
 						<Link href={"/"}>
 							<h1>Simple Blog</h1>
 						</Link>
@@ -36,17 +38,29 @@ export default async function RootLayout({
 						</p>
 					</section>
 
-					{session?.user ? (
-						<Logout
-							className="login"
-							label="Sign Out"
-						/>
-					) : (
-						<Login
-							className="login"
-							label="Sign In"
-						/>
-					)}
+					<section className="buttons">
+						{session?.user &&
+							session.user.role === UserRole.ADMIN && (
+								<Link
+									href={"/admin"}
+									className="login"
+								>
+									<FaGear />
+								</Link>
+							)}
+
+						{session?.user ? (
+							<Logout
+								className="login"
+								label="Sign Out"
+							/>
+						) : (
+							<Login
+								className="login"
+								label="Sign In"
+							/>
+						)}
+					</section>
 				</header>
 				<main className={lato.className}>{children}</main>
 				<footer className={barlow.className}>

@@ -34,7 +34,7 @@ const isOnlyForUnauthorized = (path: string) => {
 }
 
 const isOnlyForAdmin = (path: string) => {
-	return path === "/tos/edit"
+	return path === "/tos/edit" || path === "/admin"
 }
 
 export const config = {
@@ -46,5 +46,6 @@ export const config = {
 		"/auth/signUp/activate",
 		"/auth/signUp/activate/:hash*",
 		"/tos/edit",
+		"/admin",
 	],
 }

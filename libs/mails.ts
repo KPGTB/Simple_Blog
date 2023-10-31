@@ -2,11 +2,19 @@ import {createTransport} from "nodemailer"
 
 const sendActivationEmail = (hash: string, email: string) => {
 	const transporter = createTransport(process.env.SMTP_URL)
-	const html = `<h1>Simple Blog</h1><br><a href='${process.env.NEXTAUTH_URL}/auth/signUp/activate/${hash}'>Activate account</a>`
+	const file = await fs.readFile(
+		process.cwd() + "/assets/email.json",
+		"utf-8"
+	)
+	const emailJson: {title: string; content: string} = await JSON.parse(file)
+	const html = emailJson.content.replace(
+		"{LINK}",
+		`<a href='${process.env.NEXTAUTH_URL}/auth/signUp/activate/${hash}'>Activate</a>`
+	)
 	const options = {
 		from: process.env.SMTP_SENDER,
 		to: email,
-		subject: "Simple Blog Account Activation",
+		subject: emailJson.title,
 		html: html,
 	}
 	transporter.sendMail(options)

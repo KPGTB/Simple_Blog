@@ -24,7 +24,7 @@ header {
 
 	text-align: center;
 
-	& > section {
+	& > .main {
 		width: 80%;
 
 		position: absolute;
@@ -41,24 +41,33 @@ header {
 		cursor: pointer;
 	}
 
-	& > a,
-	& > .login {
-		border: solid 2px settings.$textColor;
-		border-radius: 10px;
-		padding: 10px;
-
-		font-size: 0.75rem;
-		font-weight: bold;
+	& > .buttons {
 		position: absolute;
 		right: 1vw;
 		top: 1vw;
 
-		transition: all 0.1s ease;
+		display: flex;
+		gap: 0.5vw;
 
-		&:hover {
-			color: white;
-			border-color: white;
-			transform: scale(1.1);
+		& > .login {
+			border: solid 2px settings.$textColor;
+			border-radius: 10px;
+			padding: 10px;
+
+			font-size: 0.75rem;
+			font-weight: bold;
+
+			transition: all 0.1s ease;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&:hover {
+				color: white;
+				border-color: white;
+				transform: scale(1.1);
+			}
 		}
 	}
 }
