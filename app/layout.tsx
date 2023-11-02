@@ -7,6 +7,7 @@ import {useAuth} from "@/hooks/useAuth"
 
 import "./globals.scss"
 import "@/assets/editor_style.scss"
+import Cookies from "@/components/Cookies/Cookies"
 
 const barlow = Barlow_Condensed({weight: "400", subsets: ["latin"]})
 const lato = Lato({weight: "400", subsets: ["latin"]})
@@ -26,6 +27,8 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body>
+				<Cookies font={barlow.className} />
+
 				<Header
 					font={barlow.className}
 					logged={logged}
