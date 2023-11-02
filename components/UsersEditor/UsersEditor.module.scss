@@ -1,0 +1,32 @@
+.users {
+	width: 100%;
+	overflow-y: auto;
+	max-height: 20vh;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+	align-items: center;
+}
+.user {
+	width: calc(90% - 6vw);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(240, 240, 240);
+	border-radius: 30px;
+	padding: 0.5vh 3vw;
+}
+
+.userData {
+	text-align: left;
+}
+
+.extra {
+	opacity: 0.6;
+}
+
+.buttons {
+	display: flex;
+	gap: 1vw;
+}

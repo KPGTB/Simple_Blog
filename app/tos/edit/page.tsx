@@ -1,5 +1,5 @@
 import styles from "./page.module.scss"
-import Editor from "@/components/ArticleContentEditor"
+import Editor from "@/components/ArticleContentEditor/ArticleContentEditor"
 import {redirect} from "next/navigation"
 import {useTos} from "@/hooks/useJsonData"
 import PreviewInfo, {previewTitle} from "@/components/PreviewInfo/PreviewInfo"

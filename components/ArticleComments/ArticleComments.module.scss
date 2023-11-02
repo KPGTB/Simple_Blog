@@ -1,0 +1,46 @@
+@use "/assets/settings.scss";
+
+.comments {
+	width: 100%;
+	flex-direction: column;
+	display: flex;
+	gap: 2.5vh;
+}
+
+.comment {
+	width: 100%;
+	font-size: 0.9rem;
+	border-left: solid 2px settings.$secondaryColor;
+	padding: 1vw;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.removeComment {
+	margin-left: 0.5vw;
+}
+
+.icon {
+	margin-right: 0.5vw;
+}
+
+.commentText {
+	height: 8vh !important;
+	text-align: left !important;
+	padding: 10px !important;
+}
+
+.send {
+	margin-top: 2.5vh !important;
+	width: fit-content !important;
+}
+
+.username {
+	display: flex;
+	font-weight: bold;
+}
+
+.data {
+	opacity: 0.6;
+}

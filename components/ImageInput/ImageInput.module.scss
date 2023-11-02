@@ -1,0 +1,19 @@
+@use "/assets/settings.scss";
+
+.image {
+	width: 50%;
+	aspect-ratio: 16/9;
+	border: solid 1px settings.$primaryColor;
+}
+
+.imageInput {
+	width: calc(100% - 20px) !important;
+}
+
+.inputs {
+	width: 40%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
