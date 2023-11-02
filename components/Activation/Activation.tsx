@@ -1,8 +1,9 @@
 "use client"
 
 import ReCAPTCHA from "react-google-recaptcha"
-import {activateAccount, CaptchaResponse} from "@/libs/captcha"
+import {activateAccount} from "@/libs/captcha"
 import {useState} from "react"
+import CaptchaResponse from "@/libs/enum/CaptchaResponse"
 
 const Activation = ({hash, publicKey}: {hash: string; publicKey: string}) => {
 	const [response, setResponse] = useState<CaptchaResponse | null>(null)

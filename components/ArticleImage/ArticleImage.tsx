@@ -1,5 +1,5 @@
 "use client"
-import {useState, useEffect} from "react"
+import {useState, useEffect, DetailedHTMLProps, ImgHTMLAttributes} from "react"
 
 const getImage = (hasError: boolean, loading: boolean, image: string) => {
 	if (loading) {
@@ -13,14 +13,15 @@ const getImage = (hasError: boolean, loading: boolean, image: string) => {
 
 const ArticleImage = ({
 	src,
-	alt,
 	className,
 	...delegated
 }: {
 	src: string
-	alt: string
 	className?: string
-}) => {
+} & DetailedHTMLProps<
+	ImgHTMLAttributes<HTMLImageElement>,
+	HTMLImageElement
+>) => {
 	const [hasError, setError] = useState<boolean>(true)
 	const [loading, setLoading] = useState<boolean>(true)
 
@@ -35,7 +36,6 @@ const ArticleImage = ({
 			className={className || ""}
 			onError={() => setError(true)}
 			onEmptied={() => setError(true)}
-			alt={alt}
 			{...delegated}
 		/>
 	)

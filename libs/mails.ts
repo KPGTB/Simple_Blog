@@ -1,7 +1,8 @@
 import {createTransport} from "nodemailer"
 import {promises as fs} from "fs"
+import {stringToB64} from "@/utils/convert"
 
-const sendActivationEmail = async (hash: string, email: string) => {
+export const sendActivationEmail = async (hash: string, email: string) => {
 	const transporter = createTransport(process.env.SMTP_URL)
 	const file = await fs.readFile(process.cwd() + "/data/email.json", "utf-8")
 	const emailJson: {title: string; content: string} = await JSON.parse(file)
@@ -18,4 +19,5 @@ const sendActivationEmail = async (hash: string, email: string) => {
 	transporter.sendMail(options)
 }
 
-export {sendActivationEmail}
+export const generateActivationHash = () =>
+	stringToB64(Date.now() + "_" + Math.random())

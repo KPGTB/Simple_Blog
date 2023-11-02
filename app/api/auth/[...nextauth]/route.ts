@@ -19,6 +19,7 @@ const authOptions = {
 				password: {label: "Password", type: "password"},
 			},
 			async authorize(credentials, req) {
+				console.log("aaaaa")
 				if (credentials == null) {
 					return null
 				}

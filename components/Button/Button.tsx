@@ -3,26 +3,25 @@
 import Link from "next/link"
 import styles from "./Button.module.scss"
 import {signIn, signOut} from "next-auth/react"
-import {MouseEventHandler} from "react"
+import {ButtonHTMLAttributes, DetailedHTMLProps} from "react"
 import {classesToClass} from "@/utils/convert"
 import ButtonAccent from "./ButtonAccent"
 
 const Button = ({
 	children,
 	className,
-	onClick,
 	color = ButtonAccent.BLACK,
 	hover = ButtonAccent.WHITE,
-	title = "",
 	...delegated
 }: {
 	children: React.ReactNode
 	className?: string
-	onClick?: MouseEventHandler<HTMLButtonElement>
 	color?: ButtonAccent
 	hover?: ButtonAccent
-	title?: string
-}) => {
+} & DetailedHTMLProps<
+	ButtonHTMLAttributes<HTMLButtonElement>,
+	HTMLButtonElement
+>) => {
 	return (
 		<button
 			className={classesToClass(
@@ -31,8 +30,6 @@ const Button = ({
 				styles[`hover_${hover}`],
 				className || ""
 			)}
-			onClick={onClick}
-			title={title}
 			{...delegated}
 		>
 			{children}
@@ -45,20 +42,17 @@ const LoginButton = ({
 	className,
 	color = ButtonAccent.BLACK,
 	hover = ButtonAccent.WHITE,
-	title = "",
 	...delegated
 }: {
 	children: React.ReactNode
 	className?: string
 	color?: ButtonAccent
 	hover?: ButtonAccent
-	title?: string
 }) => {
 	return (
 		<Button
 			className={className}
 			onClick={() => signIn()}
-			title={title}
 			{...delegated}
 		>
 			{children}
@@ -71,20 +65,17 @@ const LogoutButton = ({
 	className,
 	color = ButtonAccent.BLACK,
 	hover = ButtonAccent.WHITE,
-	title = "",
 	...delegated
 }: {
 	children: React.ReactNode
 	className?: string
 	color?: ButtonAccent
 	hover?: ButtonAccent
-	title?: string
 }) => {
 	return (
 		<Button
 			className={className}
 			onClick={() => signOut()}
-			title={title}
 			{...delegated}
 		>
 			{children}

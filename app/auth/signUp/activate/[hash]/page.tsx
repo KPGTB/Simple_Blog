@@ -1,4 +1,4 @@
-import Activation from "@/components/Activation"
+import Activation from "@/components/Activation/Activation"
 
 const Page = ({params}: {params: {hash: string}}) => {
 	return (

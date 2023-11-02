@@ -11,10 +11,7 @@ const PreviewInfo = () => {
 	)
 }
 
-const getPreviewTitle = () => {
-	const isPreview = stringToBool(process.env.PREVIEW)
-	return isPreview ? "This option is disabled in Preview Mode" : ""
-}
-
 export default PreviewInfo
-export {getPreviewTitle}
+export const previewTitle = stringToBool(process.env.PREVIEW)
+	? "This option is disabled in Preview Mode"
+	: ""

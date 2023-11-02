@@ -3,14 +3,36 @@
 import {useEffect, useState} from "react"
 import {FaCheck} from "react-icons/fa"
 import {FaXmark} from "react-icons/fa6"
+import Input from "../Input/Input"
+import {
+	maxPasswordLen,
+	minPasswordLen,
+	passwordDigitRegex,
+	passwordLowerRegex,
+	passwordRegex,
+	passwordSpecialRegex,
+	passwordUpperRegex,
+} from "@/utils/regex"
+import {classesToClass} from "@/utils/convert"
+
+import styles from "./PasswordValidator.module.scss"
 
 type ComponentProps = {
-	containerClass: string
 	inputClass: string
-	checksClass: string
 	inputPlaceholder: string
 	inputName: string
 	required?: boolean
+}
+
+const Entry = ({text, correct}: {text: string; correct: boolean}) => {
+	return (
+		<section key={text}>
+			<span style={{color: correct ? "green" : "red"}}>
+				{correct ? <FaCheck /> : <FaXmark />}
+			</span>{" "}
+			{text}
+		</section>
+	)
 }
 
 const PasswordValidator = (props: ComponentProps) => {
@@ -27,27 +49,30 @@ const PasswordValidator = (props: ComponentProps) => {
 		["At least one lower case (a-z)", lower],
 		["At least one upper case (A-Z)", upper],
 		["At least one special character", special],
-		["Length between 8 to 20", length],
+		[`Length between ${minPasswordLen} to ${maxPasswordLen}`, length],
 	])
 
 	useEffect(() => {
-		const digitRegex = new RegExp("(?=.*\\d)")
-		const lowerRegex = new RegExp("(?=.*[a-z])")
-		const upperRegex = new RegExp("(?=.*[A-Z])")
-		const specialRegex = new RegExp("(?=.*[\\W])")
+		const digitRegex = new RegExp(passwordDigitRegex)
+		const lowerRegex = new RegExp(passwordLowerRegex)
+		const upperRegex = new RegExp(passwordUpperRegex)
+		const specialRegex = new RegExp(passwordSpecialRegex)
 
 		setDigit(digitRegex.test(password))
 		setLower(lowerRegex.test(password))
 		setUpper(upperRegex.test(password))
 		setSpecial(specialRegex.test(password))
-		setLength(password.length >= 8 && password.length <= 20)
+		setLength(
+			password.length >= minPasswordLen &&
+				password.length <= maxPasswordLen
+		)
 	}, [password])
 
 	return (
-		<section className={props.containerClass}>
-			<input
+		<section className={styles.container}>
+			<Input
 				type="password"
-				pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,20})"
+				pattern={passwordRegex}
 				placeholder={props.inputPlaceholder}
 				className={props.inputClass}
 				name={props.inputName}
@@ -59,20 +84,17 @@ const PasswordValidator = (props: ComponentProps) => {
 			/>
 
 			<section
-				className={
-					props.checksClass + " " + (showChecks ? "show" : "hide")
-				}
+				className={classesToClass(
+					styles.checks,
+					showChecks ? styles.show : ""
+				)}
 			>
-				{Array.from(checks).map(([text, value]) => {
-					return (
-						<section key={text}>
-							<span style={{color: value ? "green" : "red"}}>
-								{value ? <FaCheck /> : <FaXmark />}
-							</span>{" "}
-							{text}
-						</section>
-					)
-				})}
+				{Array.from(checks).map(([text, value]) => (
+					<Entry
+						text={text}
+						correct={value}
+					/>
+				))}
 			</section>
 		</section>
 	)

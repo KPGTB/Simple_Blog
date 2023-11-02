@@ -2,9 +2,7 @@ import styles from "./page.module.scss"
 import Editor from "@/components/ArticleContentEditor"
 import {redirect} from "next/navigation"
 import {useTos} from "@/hooks/useJsonData"
-import PreviewInfo, {
-	getPreviewTitle,
-} from "@/components/PreviewInfo/PreviewInfo"
+import PreviewInfo, {previewTitle} from "@/components/PreviewInfo/PreviewInfo"
 import {Button} from "@/components/Button/Button"
 import ButtonAccent from "@/components/Button/ButtonAccent"
 import {stringToBool} from "@/utils/convert"
@@ -51,7 +49,7 @@ const Page = async () => {
 				<Button
 					aria-label="Edit TOS"
 					hover={ButtonAccent.YELLOW}
-					title={getPreviewTitle()}
+					title={previewTitle}
 				>
 					Edit TOS
 				</Button>

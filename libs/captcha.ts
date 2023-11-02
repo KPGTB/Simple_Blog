@@ -2,8 +2,9 @@
 
 import {User} from "@/models/User"
 import connect from "./mongodb"
+import CaptchaResponse from "./enum/CaptchaResponse"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 const activateAccount = async (
 	captchaToken: string,
@@ -38,10 +39,4 @@ const activateAccount = async (
 	return CaptchaResponse.BOT
 }
 
-enum CaptchaResponse {
-	BOT,
-	ACTIVATED,
-	WRONG_HASH,
-}
-
-export {activateAccount, CaptchaResponse}
+export {activateAccount}

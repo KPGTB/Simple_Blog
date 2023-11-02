@@ -4,7 +4,7 @@ import {classesToClass} from "@/utils/convert"
 import Link from "next/link"
 
 import styles from "./Action.module.scss"
-import {MouseEventHandler} from "react"
+import {ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler} from "react"
 
 const ActionLink = ({
 	children,
@@ -30,17 +30,17 @@ const ActionLink = ({
 const ActionButton = ({
 	children,
 	className,
-	onClick,
 	...delegated
 }: {
 	children: React.ReactNode
 	className?: string
-	onClick?: MouseEventHandler<HTMLButtonElement>
-}) => {
+} & DetailedHTMLProps<
+	ButtonHTMLAttributes<HTMLButtonElement>,
+	HTMLButtonElement
+>) => {
 	return (
 		<button
 			className={classesToClass(styles.action, className || "")}
-			onClick={onClick}
 			{...delegated}
 		>
 			{children}

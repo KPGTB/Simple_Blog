@@ -4,6 +4,10 @@ import {signIn} from "next-auth/react"
 import styles from "../page.module.scss"
 import {useSearchParams} from "next/navigation"
 import Link from "next/link"
+import {classesToClass} from "@/utils/convert"
+import {Button} from "@/components/Button/Button"
+import ButtonAccent from "@/components/Button/ButtonAccent"
+import Input from "@/components/Input/Input"
 
 const handleForm = async (e: any) => {
 	e.preventDefault()
@@ -22,21 +26,21 @@ const Page = () => {
 
 	return (
 		<form
-			className={
-				hasError
-					? styles.container + " " + styles.errorContainer
-					: styles.container
-			}
+			className={classesToClass(
+				styles.container,
+				hasError ? styles.errorContainer : ""
+			)}
 			onSubmit={handleForm}
 		>
 			<h2>Login to your account</h2>
-			<input
+
+			<Input
 				name="email"
 				placeholder="user@example.com"
 				className={styles.input}
 				required
 			/>
-			<input
+			<Input
 				name="password"
 				type="password"
 				placeholder="Password"
@@ -48,7 +52,7 @@ const Page = () => {
 				<section className={styles.error}>Wrong credentials!</section>
 			)}
 
-			<button className={styles.submit}>Sign In</button>
+			<Button hover={ButtonAccent.YELLOW}>Sign In</Button>
 
 			<p className={styles.wrongForm}>
 				Don't have account? <Link href={"/auth/signUp"}>Create it</Link>
