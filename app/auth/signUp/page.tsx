@@ -3,9 +3,12 @@ import styles from "../page.module.scss"
 import Link from "next/link"
 import PasswordValidator from "@/components/PasswordValidator"
 import connect from "@/libs/mongodb"
-import User, {FullUserType} from "@/models/User"
+import {User, FullUserType} from "@/models/User"
 import {hashPassword} from "@/libs/bcrypt"
 import {sendActivationEmail} from "@/libs/mails"
+import {stringToB64} from "@/libs/convert"
+
+export const dynamic = "force-dynamic"
 
 const handleForm = async (data: FormData) => {
 	"use server"
@@ -49,7 +52,7 @@ const handleForm = async (data: FormData) => {
 	}
 
 	const hashText = email + "_" + name + "_" + Date.now() + "_" + Math.random()
-	const hash = Buffer.from(hashText).toString("base64")
+	const hash = stringToB64(hashText)
 	const passwordHashed = await hashPassword(password)
 
 	await User.create({

@@ -2,8 +2,10 @@ import {promises as fs} from "fs"
 import styles from "./page.module.scss"
 import {FaCalendar, FaPen} from "react-icons/fa"
 import {hasAccess} from "@/libs/credentials"
-import UserRole from "@/types/UserRole"
 import Link from "next/link"
+import {UserRole} from "@/models/User"
+
+export const dynamic = "force-dynamic"
 
 const convertDate = (milis: number) =>
 	new Date(milis).toLocaleString().replace(",", "")

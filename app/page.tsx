@@ -1,11 +1,10 @@
-import Link from "next/link.js"
-import styles from "./page.module.scss"
-import {FaUser, FaCalendar, FaPlus} from "react-icons/fa"
 import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
-import ArticleImage from "@/components/ArticleImage"
 import {hasAccess} from "@/libs/credentials"
-import UserRole from "@/types/UserRole"
+import {UserRole} from "@/models/User"
+import ArticleCard from "@/components/ArticleCard/ArticleCard"
+
+import styles from "./page.module.scss"
 
 export const dynamic = "force-dynamic"
 
@@ -21,44 +20,14 @@ export default async function Home() {
 
 	return (
 		<article className={styles.container}>
-			{articles.map((article) => {
-				return (
-					<section
-						key={article._id.toString()}
-						className={styles.post}
-					>
-						<ArticleImage
-							src={article.image}
-							alt={article.title}
-						/>
-						<section className={styles.postInfo}>
-							<section>
-								<FaUser />
-								{article.author}
-							</section>
-							<section>
-								<FaCalendar />{" "}
-								{new Date(article.createdAt.toString())
-									.toLocaleString()
-									.replace(",", "")}
-							</section>
-						</section>
-						<section className={styles.postTitle}>
-							{article.title}
-						</section>
-						<Link href={`/article/${article._id}`}>Read</Link>
-					</section>
-				)
-			})}
+			{articles.map((article) => (
+				<ArticleCard
+					article={article}
+					key={article._id.toString()}
+				/>
+			))}
 
-			{access && (
-				<Link
-					href={"/add"}
-					className={styles.addPost}
-				>
-					<FaPlus />
-				</Link>
-			)}
+			{access && <ArticleCard.Add />}
 		</article>
 	)
 }

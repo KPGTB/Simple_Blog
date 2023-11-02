@@ -1,33 +1,26 @@
-import User from "@/models/User"
+import {User, UserRole} from "@/models/User"
 import mongoose from "mongoose"
 import {hashPassword} from "./bcrypt"
-import UserRole from "@/types/UserRole"
+import {stringToBool} from "./convert"
 
 let first = true
 
 const connect = async () => {
 	try {
-		// @ts-ignore
 		await mongoose.connect(process.env.MONGODB_URI)
 
-		if (
-			first &&
-			process.env.CREATE_ADMIN &&
-			process.env.ADMIN_PASSWORD != null
-		) {
+		if (first && stringToBool(process.env.CREATE_ADMIN)) {
 			first = false
 			const admin = await User.findOne({
 				email: process.env.ADMIN_EMAIL,
 			})
 			if (!admin) {
-				const email = process.env.ADMIN_EMAIL
-				const fullName = process.env.ADMIN_FULL
 				const pass = await hashPassword(process.env.ADMIN_PASSWORD)
 				await User.create({
-					email: email,
+					email: process.env.ADMIN_EMAIL,
 					password: pass,
 					role: UserRole.ADMIN,
-					fullName: fullName,
+					fullName: process.env.ADMIN_FULL,
 					activated: true,
 				})
 				console.log("Created Admin")

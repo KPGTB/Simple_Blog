@@ -1,1 +1,1 @@
-{"title":"Simple Blog - Account Activation","content":"<p><strong>Please</strong> activate your account using <mark class=\"marker-yellow\">link </mark>{LINK}.&nbsp;</p>"}
+{"title":"Simple Blog - Account Activation","content":"<p><strong>Please</strong> activate your account using this link:</p><p><a href=\"{LINK}\">Activate</a></p>"}

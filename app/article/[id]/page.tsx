@@ -1,4 +1,4 @@
-import ArticleImage from "@/components/ArticleImage"
+import ArticleImage from "@/components/ArticleImage/ArticleImage"
 import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
 import {FaCalendar, FaComment, FaPen, FaTrash, FaUser} from "react-icons/fa"
@@ -6,10 +6,10 @@ import styles from "./page.module.scss"
 import Link from "next/link"
 import {redirect} from "next/navigation"
 import {hasAccess} from "@/libs/credentials"
-import UserRole from "@/types/UserRole"
 import Comment, {CommentType} from "@/models/Comment"
 import {getServerSession} from "next-auth"
 import {authOptions} from "@/app/api/auth/[...nextauth]/route"
+import {UserRole} from "@/models/User"
 
 export const dynamic = "force-dynamic"
 

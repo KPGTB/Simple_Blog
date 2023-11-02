@@ -3,6 +3,8 @@ import styles from "./page.module.scss"
 import Editor from "@/components/ArticleContentEditor"
 import {redirect} from "next/navigation"
 
+export const dynamic = "force-dynamic"
+
 const edit = async (data: FormData) => {
 	"use server"
 	if (process.env.PREVIEW === "TRUE") {

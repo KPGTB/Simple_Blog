@@ -1,12 +1,13 @@
 import connect from "@/libs/mongodb"
-import User, {UserDataType} from "@/models/User"
-import UserRole from "@/types/UserRole"
+import {User, UserDataType, UserRole} from "@/models/User"
 import {FaTrash} from "react-icons/fa"
 import {FaDownLong, FaUpLong} from "react-icons/fa6"
 import styles from "./page.module.scss"
 import {redirect} from "next/navigation"
 import {promises as fs} from "fs"
 import Editor from "@/components/ArticleContentEditor"
+
+export const dynamic = "force-dynamic"
 
 const getUsers = async () => {
 	await connect()

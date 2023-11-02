@@ -1,12 +1,16 @@
 "use server"
 
-import User from "@/models/User"
+import {User} from "@/models/User"
 import connect from "./mongodb"
-import {CaptchaResponse} from "@/types/CaptchaResponse"
 
-const verifyCaptcha = async (token: string, hash: string) => {
+export const dynamic = "force-dynamic"
+
+const activateAccount = async (
+	captchaToken: string,
+	activationHash: string
+) => {
 	const res = await fetch(
-		`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET}&response=${token}`,
+		`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET}&response=${captchaToken}`,
 		{
 			method: "POST",
 			headers: {
@@ -18,11 +22,11 @@ const verifyCaptcha = async (token: string, hash: string) => {
 
 	if (json.success) {
 		await connect()
-		hash = hash.replaceAll("%3D", "=")
+		activationHash = activationHash.replaceAll("%3D", "=")
 		const user = await User.findOneAndUpdate(
 			{
 				activated: false,
-				activationHash: hash,
+				activationHash: activationHash,
 			},
 			{activated: true}
 		)
@@ -34,4 +38,10 @@ const verifyCaptcha = async (token: string, hash: string) => {
 	return CaptchaResponse.BOT
 }
 
-export {verifyCaptcha}
+enum CaptchaResponse {
+	BOT,
+	ACTIVATED,
+	WRONG_HASH,
+}
+
+export {activateAccount, CaptchaResponse}

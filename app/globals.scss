@@ -4,107 +4,14 @@
 	margin: 0;
 }
 
-$headerHeight: max(355px, calc(0.184 * 100vw));
-$footerHeight: max(137px, calc(0.071 * 100vw));
-
 html {
 	color: settings.$textColor;
 	font-size: max(16px, calc(0.7vmax + 7px));
 }
 
-header {
-	width: 100%;
-	height: $headerHeight;
-	position: relative;
-
-	background-image: url("../assets/BlogBgTop.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top;
-
-	text-align: center;
-
-	& > .main {
-		width: 80%;
-
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-
-		font-size: 1.5rem;
-	}
-
-	& a,
-	& .login {
-		all: unset;
-		cursor: pointer;
-	}
-
-	& > .buttons {
-		position: absolute;
-		right: 1vw;
-		top: 1vw;
-
-		display: flex;
-		gap: 0.5vw;
-
-		& > .login {
-			border: solid 2px settings.$textColor;
-			border-radius: 10px;
-			padding: 10px;
-
-			font-size: 0.75rem;
-			font-weight: bold;
-
-			transition: all 0.1s ease;
-
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			&:hover {
-				color: white;
-				border-color: white;
-				transform: scale(1.1);
-			}
-		}
-	}
-}
-
-footer {
-	width: 100%;
-	height: $footerHeight;
-	position: relative;
-
-	background-image: url("../assets/BlogBgDown.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: bottom;
-
-	text-align: center;
-
-	& > section {
-		width: 80%;
-
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translate(-50%, -50%);
-
-		font-size: 0.8rem;
-
-		& > a {
-			all: unset;
-			font-weight: bold;
-			cursor: pointer;
-		}
-	}
-}
-
 main {
-	min-height: calc(90vh - $headerHeight - $footerHeight);
-	min-height: calc(90dvh - $headerHeight - $footerHeight);
+	min-height: calc(90vh - settings.$headerHeight - settings.$footerHeight);
+	min-height: calc(90dvh - settings.$headerHeight - settings.$footerHeight);
 	position: relative;
 
 	display: flex;
@@ -113,31 +20,4 @@ main {
 
 	padding-top: 5vh;
 	padding-bottom: 5vh;
-}
-
-.lineWithText {
-	overflow: hidden;
-	text-align: center;
-	opacity: 0.6;
-
-	&::before,
-	&::after {
-		background-color: #000;
-		content: "";
-		display: inline-block;
-		height: 1px;
-		position: relative;
-		vertical-align: middle;
-		width: 50%;
-	}
-
-	&::before {
-		right: 0.5em;
-		margin-left: -50%;
-	}
-
-	&::after {
-		left: 0.5em;
-		margin-right: -50%;
-	}
 }

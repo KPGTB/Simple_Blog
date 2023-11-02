@@ -1,0 +1,30 @@
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/Thumbs.db": true,
+		"node_modules": true,
+		".next": true,
+		".vscode": true,
+		".eslintrc.json": true,
+		".gitignore": true,
+		"LICENSE": true,
+		"tsconfig.json": true,
+		"package-lock.json": true,
+		"next-env.d.ts": true
+	},
+	"hide-files.files": [
+		"node_modules",
+		".next",
+		".vscode",
+		".eslintrc.json",
+		".gitignore",
+		"LICENSE",
+		"tsconfig.json",
+		"package-lock.json",
+		"next-env.d.ts"
+	]
+}

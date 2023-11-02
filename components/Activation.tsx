@@ -1,16 +1,15 @@
 "use client"
 
 import ReCAPTCHA from "react-google-recaptcha"
-import {verifyCaptcha} from "@/libs/captcha"
+import {activateAccount, CaptchaResponse} from "@/libs/captcha"
 import {useState} from "react"
-import {CaptchaResponse} from "@/types/CaptchaResponse"
 
 const Activation = ({hash, publicKey}: {hash: string; publicKey: string}) => {
 	const [response, setResponse] = useState<CaptchaResponse | null>(null)
 
 	const handleChange = async (token: string | null) => {
 		if (token !== null) {
-			verifyCaptcha(token, hash).then((resp) => {
+			activateAccount(token, hash).then((resp) => {
 				setResponse(resp)
 			})
 		}

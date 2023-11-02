@@ -1,0 +1,72 @@
+@use "/assets/settings.scss";
+
+.article {
+	border: solid settings.$primaryColor 3px;
+	border-radius: 0 0 20px 20px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.image {
+	width: 100%;
+	border-bottom: solid settings.$primaryColor 3px;
+	aspect-ratio: 16/9;
+}
+
+.read {
+	width: calc(90% - 20px) !important;
+	margin-bottom: 10px !important;
+	color: settings.$secondaryColor !important;
+	border: solid 3px settings.$secondaryColor !important;
+
+	&:hover {
+		color: settings.$primaryColor !important;
+		border-color: settings.$primaryColor !important;
+		transform: scale(0.95) !important;
+	}
+}
+
+.info {
+	opacity: 0.6;
+	font-size: 0.8rem;
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+
+	section {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 1;
+	}
+}
+
+.title {
+	width: 90%;
+	font-weight: bold;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: 1;
+	-webkit-line-clamp: 1;
+}
+
+.add {
+	border: dashed settings.$textColor 3px;
+	border-radius: 0 0 20px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	color: settings.$textColor;
+	opacity: 0.3;
+	transition: all 0.1s ease;
+
+	&:hover {
+		opacity: 0.2;
+		transform: scale(0.95);
+	}
+}

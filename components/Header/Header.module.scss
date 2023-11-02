@@ -1,0 +1,39 @@
+@use "/assets/settings.scss";
+
+.title {
+	all: unset;
+	cursor: pointer;
+}
+
+.header {
+	width: 100%;
+	height: settings.$headerHeight;
+	position: relative;
+
+	background-image: url("/BlogBgTop.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+
+	text-align: center;
+}
+
+.main {
+	width: 80%;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	font-size: 1.5rem;
+}
+
+.buttons {
+	position: absolute;
+	right: 1vw;
+	top: 1vw;
+
+	display: flex;
+	gap: 0.5vw;
+}

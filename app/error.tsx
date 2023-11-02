@@ -1,6 +1,5 @@
-"use client" // Error components must be Client Components
-import styles from "./page.module.scss"
+"use client"
 
 export default function Error({error}: {error: Error & {digest?: string}}) {
-	return <h2 className={styles.error}>Error - {error.message}</h2>
+	return <h2>Error - {error.message}</h2>
 }

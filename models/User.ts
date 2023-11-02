@@ -1,5 +1,10 @@
-import UserRole from "@/types/UserRole"
 import mongoose, {ObjectId, Schema} from "mongoose"
+
+enum UserRole {
+	USER = "user",
+	EDITOR = "editor",
+	ADMIN = "admin",
+}
 
 const userSchema = new Schema({
 	email: String,
@@ -17,9 +22,10 @@ const userSchema = new Schema({
 	activationHash: String,
 })
 
-const User = mongoose.models.User || mongoose.model("User", userSchema)
+const User = mongoose.models?.User || mongoose.model("User", userSchema)
 
-export default User
+export {User, UserRole}
+
 export type FullUserType = {
 	_id: ObjectId
 	email: string

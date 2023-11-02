@@ -1,0 +1,30 @@
+@use "/assets/settings.scss";
+
+.footer {
+	width: 100%;
+	height: settings.$footerHeight;
+	position: relative;
+
+	background-image: url("/BlogBgDown.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+
+	text-align: center;
+
+	font-size: 0.8rem;
+
+	& a {
+		all: unset;
+		font-weight: bold;
+		cursor: pointer;
+	}
+}
+
+.info {
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+}

@@ -8,9 +8,9 @@ const sendActivationEmail = async (hash: string, email: string) => {
 		"utf-8"
 	)
 	const emailJson: {title: string; content: string} = await JSON.parse(file)
-	const html = emailJson.content.replace(
+	const html = emailJson.content.replaceAll(
 		"{LINK}",
-		`<a href='${process.env.NEXTAUTH_URL}/auth/signUp/activate/${hash}'>Activate</a>`
+		`${process.env.NEXTAUTH_URL}/auth/signUp/activate/${hash}`
 	)
 	const options = {
 		from: process.env.SMTP_SENDER,

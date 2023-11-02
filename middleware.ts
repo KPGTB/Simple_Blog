@@ -1,6 +1,6 @@
 import {withAuth} from "next-auth/middleware"
 import {NextResponse} from "next/server"
-import UserRole from "./types/UserRole"
+import {UserRole} from "./models/User"
 
 export default withAuth(
 	function middleware(req) {
@@ -19,11 +19,15 @@ export default withAuth(
 					return true
 				}
 
-				if (isOnlyForAdmin(path)) {
-					return token?.userData.role === UserRole.ADMIN
+				if (token === null) {
+					return false
 				}
 
-				return token !== null && token.userData.role !== UserRole.USER
+				if (isOnlyForAdmin(path)) {
+					return token.userData.role === UserRole.ADMIN
+				}
+
+				return token.userData.role !== UserRole.USER
 			},
 		},
 	}

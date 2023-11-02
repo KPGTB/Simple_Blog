@@ -26,8 +26,7 @@ const ArticleContentEditor = (props: EditorProps) => {
 			<CKEditor
 				editor={Editor}
 				data={props.placeholder}
-				// @ts-ignore
-				onChange={(event, editor) => {
+				onChange={(event: any, editor: any) => {
 					const data = editor.getData()
 					inputRef.current.value = data
 				}}

@@ -1,6 +1,6 @@
 import {comparePasswords} from "@/libs/bcrypt"
 import connect from "@/libs/mongodb"
-import User from "@/models/User"
+import {User} from "@/models/User"
 import {ObjectId} from "mongoose"
 import {NextAuthOptions} from "next-auth"
 import NextAuth from "next-auth/next"
