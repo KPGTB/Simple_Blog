@@ -6,7 +6,7 @@ import connect from "@/libs/mongodb"
 import {User, FullUserType} from "@/models/User"
 import {hashPassword} from "@/libs/bcrypt"
 import {sendActivationEmail} from "@/libs/mails"
-import {stringToB64} from "@/libs/convert"
+import {stringToB64} from "@/utils/convert"
 
 export const dynamic = "force-dynamic"
 

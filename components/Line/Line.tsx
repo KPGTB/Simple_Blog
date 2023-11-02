@@ -1,4 +1,4 @@
-import {classesToClass} from "@/libs/convert"
+import {classesToClass} from "@/utils/convert"
 
 import styles from "./Line.module.scss"
 

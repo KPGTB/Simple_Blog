@@ -19,12 +19,9 @@
 .read {
 	width: calc(90% - 20px) !important;
 	margin-bottom: 10px !important;
-	color: settings.$secondaryColor !important;
-	border: solid 3px settings.$secondaryColor !important;
+	border-width: 3px !important;
 
 	&:hover {
-		color: settings.$primaryColor !important;
-		border-color: settings.$primaryColor !important;
 		transform: scale(0.95) !important;
 	}
 }

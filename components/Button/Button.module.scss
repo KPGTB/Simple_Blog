@@ -4,7 +4,6 @@
 	all: unset;
 	cursor: pointer;
 
-	border: solid 2px settings.$textColor;
 	border-radius: 10px;
 	padding: 10px;
 
@@ -17,9 +16,47 @@
 	justify-content: center;
 	align-items: center;
 
-	&:hover {
+	&.black {
+		border: solid 2px settings.$textColor;
+		color: settings.$textColor;
+	}
+
+	&.white {
+		border: solid 2px white;
 		color: white;
-		border-color: white;
+	}
+
+	&.yellow {
+		border: solid 2px settings.$primaryColor;
+		color: settings.$primaryColor;
+	}
+
+	&.gold {
+		border: solid 2px settings.$secondaryColor;
+		color: settings.$secondaryColor;
+	}
+
+	&:hover {
 		transform: scale(1.1);
+
+		&.hover_black {
+			color: settings.$textColor;
+			border-color: settings.$textColor;
+		}
+
+		&.hover_white {
+			color: white;
+			border-color: white;
+		}
+
+		&.hover_yellow {
+			color: settings.$primaryColor;
+			border-color: settings.$primaryColor;
+		}
+
+		&.hover_gold {
+			color: settings.$secondaryColor;
+			border-color: settings.$secondaryColor;
+		}
 	}
 }

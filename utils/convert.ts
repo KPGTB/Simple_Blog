@@ -1,3 +1,5 @@
+import {Date as MongoDate} from "mongoose"
+
 export const stringToBool = (text: string) => text.toLowerCase() === "true"
 export const stringToB64 = (text: string) =>
 	Buffer.from(text).toString("base64")
@@ -29,4 +31,10 @@ export const classesToClass = (...classes: string[]) => {
 	}
 
 	return result
+}
+export const convertDate = (date: MongoDate | Date | number) => {
+	if (typeof date == "number") {
+		date = new Date(date)
+	}
+	return date.toLocaleString().replace(",", "")
 }

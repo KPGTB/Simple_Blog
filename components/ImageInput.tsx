@@ -1,6 +1,6 @@
 "use client"
 
-import {fileToB64} from "@/libs/convert"
+import {fileToB64} from "@/utils/convert"
 import {useRef, useState} from "react"
 import Line from "./Line/Line"
 

@@ -3,10 +3,7 @@ import {promises as fs} from "fs"
 
 const sendActivationEmail = async (hash: string, email: string) => {
 	const transporter = createTransport(process.env.SMTP_URL)
-	const file = await fs.readFile(
-		process.cwd() + "/assets/email.json",
-		"utf-8"
-	)
+	const file = await fs.readFile(process.cwd() + "/data/email.json", "utf-8")
 	const emailJson: {title: string; content: string} = await JSON.parse(file)
 	const html = emailJson.content.replaceAll(
 		"{LINK}",

@@ -1,4 +1,4 @@
-import {useAuth} from "@/hooks/Auth"
+import {useAuth} from "@/hooks/useAuth"
 import {UserRole} from "@/models/User"
 
 export const hasAccess = async (...requiredRole: UserRole[]) => {

@@ -1,4 +1,4 @@
-import mongoose, {ObjectId, Schema} from "mongoose"
+import mongoose, {Date, ObjectId, Schema} from "mongoose"
 
 const commentSchema = new Schema(
 	{

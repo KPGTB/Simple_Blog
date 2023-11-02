@@ -1,0 +1,11 @@
+.action {
+	all: unset;
+	cursor: pointer;
+	transition: all 0.1s ease;
+	font-size: 1rem;
+
+	&:hover {
+		color: red;
+		transform: scale(1.1);
+	}
+}

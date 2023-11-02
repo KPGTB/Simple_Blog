@@ -5,6 +5,8 @@ import Link from "next/link"
 import ArticleImage from "../ArticleImage/ArticleImage"
 
 import styles from "./ArticleCard.module.scss"
+import {convertDate} from "@/utils/convert"
+import ButtonAccent from "../Button/ButtonAccent"
 
 const ArticleCard = ({article}: {article: ArticleType}) => {
 	return (
@@ -21,10 +23,7 @@ const ArticleCard = ({article}: {article: ArticleType}) => {
 					{article.author}
 				</section>
 				<section>
-					<FaCalendar />{" "}
-					{new Date(article.createdAt.toString())
-						.toLocaleString()
-						.replace(",", "")}
+					<FaCalendar /> {convertDate(article.createdAt)}
 				</section>
 			</section>
 
@@ -33,6 +32,8 @@ const ArticleCard = ({article}: {article: ArticleType}) => {
 			<LinkButton
 				href={`/article/${article._id}`}
 				className={styles.read}
+				color={ButtonAccent.GOLD}
+				hover={ButtonAccent.YELLOW}
 			>
 				Read
 			</LinkButton>

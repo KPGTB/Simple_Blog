@@ -3,7 +3,7 @@ import {Barlow_Condensed, Lato} from "next/font/google"
 import {UserRole} from "@/models/User"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
-import {useAuth} from "@/hooks/Auth"
+import {useAuth} from "@/hooks/useAuth"
 
 import "./globals.scss"
 import "@/assets/editor_style.scss"

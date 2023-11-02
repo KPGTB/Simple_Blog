@@ -64,7 +64,7 @@ const editEmail = async (data: FormData) => {
 	}
 
 	await fs.writeFile(
-		process.cwd() + "/assets/email.json",
+		process.cwd() + "/data/email.json",
 		JSON.stringify(json),
 		"utf-8"
 	)
@@ -74,10 +74,7 @@ const editEmail = async (data: FormData) => {
 
 const Page = async () => {
 	const accounts = await getUsers()
-	const file = await fs.readFile(
-		process.cwd() + "/assets/email.json",
-		"utf-8"
-	)
+	const file = await fs.readFile(process.cwd() + "/data/email.json", "utf-8")
 	const emailJson: {title: string; content: string} = await JSON.parse(file)
 
 	return (
