@@ -8,7 +8,11 @@ declare global {
 			ADMIN_FULL: string
 			ADMIN_EMAIL: string
 			ADMIN_PASSWORD: string
-			SMTP_URL: string
+			SMTP_USER: string
+			SMTP_PASS: string
+			SMTP_HOST: string
+			SMTP_PORT: string
+			SMTP_SECURE: string
 			SMTP_SENDER: string
 			RECAPTCHA_SECRET: string
 			RECAPTCHA_PUBLIC: string
