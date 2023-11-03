@@ -8,7 +8,11 @@ CREATE_ADMIN=true
 ADMIN_FULL=Administrator
 ADMIN_EMAIL=admin@simpleblog.org
 ADMIN_PASSWORD=admin
-SMTP_URL=smtps://<username>:<password>@<smtp_server>/?pool=true
+SMTP_USER=
+SMTP_PASS=
+SMTP_HOST=
+SMTP_PORT=
+SMTP_SECURE=
 SMTP_SENDER=
 RECAPTCHA_SECRET=
 RECAPTCHA_PUBLIC=
