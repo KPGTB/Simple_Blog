@@ -48,6 +48,7 @@ const DeleteAccount = ({error}: {error?: string}) => {
 				<Button
 					hover={ButtonAccent.YELLOW}
 					style={{color: "red"}}
+					aria-label="Delete Account"
 				>
 					Delete Account
 				</Button>

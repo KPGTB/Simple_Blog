@@ -19,7 +19,10 @@ const Page = async () => {
 			<h2 className={styles.title}>Terms of Service</h2>
 			<section className={styles.data}>
 				{canEdit && (
-					<ActionLink href="/tos/edit">
+					<ActionLink
+						href="/tos/edit"
+						aria-label="Edit Terms of Service"
+					>
 						<FaPen />
 					</ActionLink>
 				)}{" "}

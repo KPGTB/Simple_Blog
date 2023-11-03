@@ -60,13 +60,29 @@ const Page = ({searchParams}: {searchParams: {error?: string}}) => {
 
 			<p className={styles.rules}>
 				By creating account, you agree to our{" "}
-				<Link href={"/tos"}>Terms of Service</Link>
+				<Link
+					href={"/tos"}
+					aria-label="Terms of Service"
+				>
+					Terms of Service
+				</Link>
 			</p>
 
-			<Button hover={ButtonAccent.YELLOW}>Sign Up</Button>
+			<Button
+				hover={ButtonAccent.YELLOW}
+				aria-label="Sign Up"
+			>
+				Sign Up
+			</Button>
 
 			<p className={styles.wrongForm}>
-				Already have account? <Link href={"/auth/signIn"}>Login</Link>
+				Already have account?{" "}
+				<Link
+					href={"/auth/signIn"}
+					aria-label="Login to account"
+				>
+					Login
+				</Link>
 			</p>
 		</form>
 	)

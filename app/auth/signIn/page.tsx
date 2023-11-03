@@ -54,10 +54,21 @@ const Page = () => {
 				<section className={styles.error}>Wrong credentials!</section>
 			)}
 
-			<Button hover={ButtonAccent.YELLOW}>Sign In</Button>
+			<Button
+				hover={ButtonAccent.YELLOW}
+				aria-label="Sign In"
+			>
+				Sign In
+			</Button>
 
 			<p className={styles.wrongForm}>
-				Don't have account? <Link href={"/auth/signUp"}>Create it</Link>
+				Don&apos;t have account?{" "}
+				<Link
+					href={"/auth/signUp"}
+					aria-label="Create Account"
+				>
+					Create it
+				</Link>
 			</p>
 		</form>
 	)

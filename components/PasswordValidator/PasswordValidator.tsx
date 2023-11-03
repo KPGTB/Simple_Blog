@@ -27,7 +27,7 @@ type ComponentProps = {
 
 const Entry = ({text, correct}: {text: string; correct: boolean}) => {
 	return (
-		<section key={text}>
+		<section>
 			<span style={{color: correct ? "green" : "red"}}>
 				{correct ? <FaCheck /> : <FaXmark />}
 			</span>{" "}
@@ -94,6 +94,7 @@ const PasswordValidator = (props: ComponentProps) => {
 					<Entry
 						text={text}
 						correct={value}
+						key={text}
 					/>
 				))}
 			</section>

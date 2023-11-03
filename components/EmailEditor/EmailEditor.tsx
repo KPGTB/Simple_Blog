@@ -57,6 +57,7 @@ const EmailEditor = async () => {
 					className={styles.button}
 					hover={ButtonAccent.YELLOW}
 					title={previewTitle}
+					aria-label="Save"
 				>
 					Save
 				</Button>

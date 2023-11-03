@@ -1,5 +1,6 @@
 import {withAuth} from "next-auth/middleware"
 import {NextResponse} from "next/server"
+
 import {UserRole} from "./models/User"
 
 export default withAuth(
@@ -62,4 +63,6 @@ export const config = {
 		"/user",
 		"/user/signout",
 	],
+	runtime: "experimental-edge",
+	unstable_allowDynamic: ["/node_modules/mongoose/**"],
 }

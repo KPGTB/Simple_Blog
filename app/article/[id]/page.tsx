@@ -49,12 +49,21 @@ const Page = async ({params}: {params: {id: string}}) => {
 								styles.actionContainer
 							)}
 						>
-							<ActionLink href={"/edit/" + params.id}>
+							<ActionLink
+								href={"/edit/" + params.id}
+								aria-label="Edit article"
+							>
 								<FaPen />
 							</ActionLink>
-							<form action={removeArticle}>
+							<form
+								action={removeArticle}
+								aria-label="Remove Article"
+							>
 								<HiddenId id={params.id} />
-								<ActionButton title={previewTitle}>
+								<ActionButton
+									title={previewTitle}
+									aria-label="Remove Article"
+								>
 									<FaTrash />
 								</ActionButton>
 							</form>

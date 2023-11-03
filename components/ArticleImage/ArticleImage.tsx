@@ -36,6 +36,7 @@ const ArticleImage = ({
 			className={className || ""}
 			onError={() => setError(true)}
 			onEmptied={() => setError(true)}
+			alt={delegated.alt}
 			{...delegated}
 		/>
 	)

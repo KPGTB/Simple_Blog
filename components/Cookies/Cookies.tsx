@@ -35,10 +35,21 @@ const Cookies = ({font}: {font: string}) => {
 				<p>
 					This website uses only necessary cookies to provide accounts
 					system. If you continue use of this website, we assume that
-					you are okay with it. <Link href="/tos">Read More</Link>
+					you are okay with it.{" "}
+					<Link
+						href="/tos"
+						aria-label="Read Terms of Service"
+					>
+						Read More
+					</Link>
 				</p>
 			</section>
-			<Button hover={ButtonAccent.YELLOW}>Got it</Button>
+			<Button
+				hover={ButtonAccent.YELLOW}
+				aria-label="Accept Cookies"
+			>
+				Got it
+			</Button>
 		</form>
 	)
 }

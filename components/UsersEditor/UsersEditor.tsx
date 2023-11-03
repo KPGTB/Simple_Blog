@@ -42,7 +42,10 @@ const UserEditor = async () => {
 									<form action={promote}>
 										<HiddenId id={user._id.toString()} />
 
-										<Button hover={ButtonAccent.YELLOW}>
+										<Button
+											hover={ButtonAccent.YELLOW}
+											aria-label="Promote"
+										>
 											<FaUpLong />
 										</Button>
 									</form>
@@ -50,7 +53,10 @@ const UserEditor = async () => {
 									<form action={demote}>
 										<HiddenId id={user._id.toString()} />
 
-										<Button hover={ButtonAccent.YELLOW}>
+										<Button
+											hover={ButtonAccent.YELLOW}
+											aria-label="Demote"
+										>
 											<FaDownLong />
 										</Button>
 									</form>
@@ -58,7 +64,10 @@ const UserEditor = async () => {
 								<form action={remove}>
 									<HiddenId id={user._id.toString()} />
 
-									<Button hover={ButtonAccent.YELLOW}>
+									<Button
+										hover={ButtonAccent.YELLOW}
+										aria-label="Remove Account"
+									>
 										<FaTrash />
 									</Button>
 								</form>

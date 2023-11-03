@@ -53,7 +53,12 @@ const ChangePassword = ({
 					</section>
 				)}
 
-				<Button hover={ButtonAccent.YELLOW}>Change</Button>
+				<Button
+					hover={ButtonAccent.YELLOW}
+					aria-label="Change Password"
+				>
+					Change
+				</Button>
 			</form>
 		</SettingsOptionContainer>
 	)

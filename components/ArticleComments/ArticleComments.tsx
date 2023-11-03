@@ -37,6 +37,7 @@ const NewComment = ({articleId}: {articleId: string}) => {
 				hover={ButtonAccent.YELLOW}
 				title={previewTitle}
 				className={styles.send}
+				aria-label="Send Comment"
 			>
 				Send
 			</Button>
@@ -78,6 +79,7 @@ const ArticleComments = async ({articleId}: {articleId: string}) => {
 									<ActionButton
 										className={styles.removeComment}
 										title={previewTitle}
+										aria-label="Remove Comment"
 									>
 										<FaTrash className={styles.data} />
 									</ActionButton>

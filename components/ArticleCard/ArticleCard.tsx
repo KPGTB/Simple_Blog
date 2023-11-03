@@ -38,8 +38,9 @@ const ArticleCard = ({article}: {article: ArticleType}) => {
 				className={styles.read}
 				color={ButtonAccent.GOLD}
 				hover={ButtonAccent.YELLOW}
+				aria-label="Read article"
 			>
-				Read
+				Read Article
 			</LinkButton>
 		</section>
 	)
@@ -73,6 +74,7 @@ const Add = () => {
 		<Link
 			href={"/add"}
 			className={styles.add}
+			aria-label="Add Article"
 		>
 			<FaPlus />
 		</Link>

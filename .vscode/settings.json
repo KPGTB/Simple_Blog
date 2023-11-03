@@ -8,7 +8,6 @@
 		"**/Thumbs.db": true,
 		".next": true,
 		".vscode": true,
-		".eslintrc.json": true,
 		".gitignore": true,
 		"LICENSE": true,
 		"tsconfig.json": true,
@@ -19,7 +18,6 @@
 	"hide-files.files": [
 		".next",
 		".vscode",
-		".eslintrc.json",
 		".gitignore",
 		"LICENSE",
 		"tsconfig.json",

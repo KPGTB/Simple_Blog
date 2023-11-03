@@ -8,7 +8,12 @@ const Footer = ({font}: {font: string}) => {
 	return (
 		<footer className={`${font} ${styles.footer}`}>
 			<section className={styles.info}>
-				<Link href={"/tos"}>Terms of Service</Link>
+				<Link
+					href={"/tos"}
+					aria-label="Read Terms of Service"
+				>
+					Terms of Service
+				</Link>
 				<br />
 				{stringToBool(process.env.PREVIEW) && (
 					<>
@@ -21,6 +26,7 @@ const Footer = ({font}: {font: string}) => {
 				<a
 					href="https://kpgtb.pl/"
 					target="blank"
+					aria-label="KPG-TB Portfolio"
 				>
 					KPG-TB
 				</a>{" "}
@@ -28,6 +34,7 @@ const Footer = ({font}: {font: string}) => {
 				<a
 					target="blank"
 					href="https://github.com/KPGTB/Simple_Blog/blob/main/LICENSE"
+					aria-label="Simple Blog License"
 				>
 					Apache 2.0
 				</a>

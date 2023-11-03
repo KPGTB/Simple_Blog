@@ -20,6 +20,7 @@ const Header = ({
 				<Link
 					href={"/"}
 					className={styles.title}
+					aria-label="Home Page"
 				>
 					<h1>Simple Blog</h1>
 				</Link>
@@ -31,12 +32,18 @@ const Header = ({
 
 			<section className={styles.buttons}>
 				{logged && (
-					<LinkButton href="/user">
+					<LinkButton
+						href="/user"
+						aria-label="User Settings"
+					>
 						<FaUser />
 					</LinkButton>
 				)}
 				{admin && (
-					<LinkButton href="/admin">
+					<LinkButton
+						href="/admin"
+						aria-label="Admin Settings"
+					>
 						<FaGear />
 					</LinkButton>
 				)}

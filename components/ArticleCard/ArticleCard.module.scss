@@ -20,6 +20,8 @@
 	width: calc(90% - 20px) !important;
 	margin-bottom: 10px !important;
 	border-width: 3px !important;
+	color: settings.$textColor !important;
+	background-color: settings.$primaryColor !important;
 
 	&:hover {
 		transform: scale(0.95) !important;

@@ -36,4 +36,5 @@ export const removeArticle = async (data: FormData) => {
 	}
 	await connect()
 	await Article.findByIdAndDelete(id)
+	redirect("/")
 }
