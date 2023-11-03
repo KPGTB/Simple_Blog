@@ -27,7 +27,18 @@ const ArticleCard = ({article}: {article: ArticleType}) => {
 					{article.author}
 				</section>
 				<section>
-					<FaCalendar /> {convertDate(article.createdAt)}
+					<FaCalendar />{" "}
+					{
+						<span
+							style={{width: "100%"}}
+							dangerouslySetInnerHTML={{
+								__html: convertDate(article.createdAt).replace(
+									" ",
+									"<br />"
+								),
+							}}
+						/>
+					}
 				</section>
 			</section>
 
