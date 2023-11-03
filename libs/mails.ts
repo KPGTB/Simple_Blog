@@ -17,7 +17,7 @@ export const sendActivationEmail = async (hash: string, email: string) => {
 		subject: emailJson.title,
 		html: html,
 	}
-	transporter.sendMail(options)
+	await transporter.sendMail(options)
 }
 
 export const generateActivationHash = () =>
