@@ -1,13 +1,14 @@
-import {ArticleType} from "@/models/Article"
-import {addArticle, editArticle} from "./ArticleEditorActions"
-import styles from "./ArticleEditor.module.scss"
-import Input from "../Input/Input"
-import ImageInput from "../ImageInput/ImageInput"
 import Editor from "@/components/ArticleContentEditor/ArticleContentEditor"
-import PreviewInfo, {previewTitle} from "../PreviewInfo/PreviewInfo"
+import {ArticleType} from "@/models/Article"
+
 import {Button} from "../Button/Button"
-import HiddenId from "../HiddenId/HiddenId"
 import ButtonAccent from "../Button/ButtonAccent"
+import HiddenId from "../HiddenId/HiddenId"
+import ImageInput from "../ImageInput/ImageInput"
+import Input from "../Input/Input"
+import PreviewInfo, {previewTitle} from "../PreviewInfo/PreviewInfo"
+import styles from "./ArticleEditor.module.scss"
+import {addArticle, editArticle} from "./ArticleEditorActions"
 
 const ArticleEditor = ({article}: {article?: ArticleType}) => {
 	return (

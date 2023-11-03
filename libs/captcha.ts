@@ -1,8 +1,9 @@
 "use server"
 
 import {User} from "@/models/User"
-import connect from "./mongodb"
+
 import CaptchaResponse from "./enum/CaptchaResponse"
+import connect from "./mongodb"
 
 // export const dynamic = "force-dynamic"
 

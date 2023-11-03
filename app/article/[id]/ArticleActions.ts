@@ -1,11 +1,12 @@
 "use server"
 
+import {redirect} from "next/navigation"
+
 import {hasAccess} from "@/libs/credentials"
 import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
 import {UserRole} from "@/models/User"
 import {stringToBool} from "@/utils/convert"
-import {redirect} from "next/navigation"
 
 export const getArticle = async (id: string) => {
 	await connect()

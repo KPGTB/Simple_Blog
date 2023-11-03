@@ -1,12 +1,13 @@
 "use server"
 
+import {redirect} from "next/navigation"
+
 import {useAuth} from "@/hooks/useAuth"
 import {hasAccess} from "@/libs/credentials"
 import connect from "@/libs/mongodb"
 import Comment, {CommentType} from "@/models/Comment"
 import {UserRole} from "@/models/User"
 import {stringToBool} from "@/utils/convert"
-import {redirect} from "next/navigation"
 
 export const getComments = async (id: string) => {
 	await connect()

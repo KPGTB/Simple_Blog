@@ -1,13 +1,15 @@
 "use client"
 
 import {signIn} from "next-auth/react"
-import styles from "../page.module.scss"
-import {useSearchParams} from "next/navigation"
 import Link from "next/link"
-import {classesToClass} from "@/utils/convert"
+import {useSearchParams} from "next/navigation"
+
 import {Button} from "@/components/Button/Button"
 import ButtonAccent from "@/components/Button/ButtonAccent"
 import Input from "@/components/Input/Input"
+import {classesToClass} from "@/utils/convert"
+
+import styles from "../page.module.scss"
 
 const handleForm = async (e: any) => {
 	e.preventDefault()

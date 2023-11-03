@@ -1,15 +1,17 @@
-import ArticleImage from "@/components/ArticleImage/ArticleImage"
-import {ArticleType} from "@/models/Article"
 import {FaCalendar, FaPen, FaTrash, FaUser} from "react-icons/fa"
-import styles from "./page.module.scss"
+
+import {ActionButton, ActionLink} from "@/components/Action/Action"
+import ArticleComments from "@/components/ArticleComments/ArticleComments"
+import ArticleImage from "@/components/ArticleImage/ArticleImage"
+import HiddenId from "@/components/HiddenId/HiddenId"
+import {previewTitle} from "@/components/PreviewInfo/PreviewInfo"
 import {hasAccess} from "@/libs/credentials"
+import {ArticleType} from "@/models/Article"
 import {UserRole} from "@/models/User"
 import {classesToClass, convertDate} from "@/utils/convert"
-import {ActionButton, ActionLink} from "@/components/Action/Action"
-import {previewTitle} from "@/components/PreviewInfo/PreviewInfo"
-import ArticleComments from "@/components/ArticleComments/ArticleComments"
-import HiddenId from "@/components/HiddenId/HiddenId"
+
 import {getArticle, removeArticle} from "./ArticleActions"
+import styles from "./page.module.scss"
 
 export const dynamic = "force-dynamic"
 

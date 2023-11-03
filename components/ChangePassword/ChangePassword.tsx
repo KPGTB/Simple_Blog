@@ -4,7 +4,6 @@ import Input from "../Input/Input"
 import PasswordValidator from "../PasswordValidator/PasswordValidator"
 import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
 import {change} from "./ChangeActions"
-
 import styles from "./ChangePassword.module.scss"
 
 const ChangePassword = ({

@@ -1,10 +1,12 @@
-import {classesToClass} from "@/utils/convert"
-import styles from "./Input.module.scss"
 import {
 	DetailedHTMLProps,
 	InputHTMLAttributes,
 	TextareaHTMLAttributes,
 } from "react"
+
+import {classesToClass} from "@/utils/convert"
+
+import styles from "./Input.module.scss"
 
 const Input = ({
 	className,

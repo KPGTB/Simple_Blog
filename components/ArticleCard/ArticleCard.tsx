@@ -1,15 +1,16 @@
-import {ArticleType} from "@/models/Article"
-import {FaCalendar, FaPlus, FaUser} from "react-icons/fa6"
-import {LinkButton} from "../Button/Button"
-import Link from "next/link"
-import ArticleImage from "../ArticleImage/ArticleImage"
-
-import styles from "./ArticleCard.module.scss"
-import {convertDate} from "@/utils/convert"
-import ButtonAccent from "../Button/ButtonAccent"
-
-import Skeleton from "react-loading-skeleton"
 import "react-loading-skeleton/dist/skeleton.css"
+
+import Link from "next/link"
+import {FaCalendar, FaPlus, FaUser} from "react-icons/fa6"
+import Skeleton from "react-loading-skeleton"
+
+import {ArticleType} from "@/models/Article"
+import {convertDate} from "@/utils/convert"
+
+import ArticleImage from "../ArticleImage/ArticleImage"
+import {LinkButton} from "../Button/Button"
+import ButtonAccent from "../Button/ButtonAccent"
+import styles from "./ArticleCard.module.scss"
 
 const ArticleCard = ({article}: {article: ArticleType}) => {
 	return (

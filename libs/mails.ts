@@ -1,5 +1,6 @@
-import {createTransport} from "nodemailer"
 import {promises as fs} from "fs"
+import {createTransport} from "nodemailer"
+
 import {stringToB64} from "@/utils/convert"
 
 export const sendActivationEmail = async (hash: string, email: string) => {

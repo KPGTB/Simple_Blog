@@ -1,4 +1,4 @@
-import {genSalt, hash, compare} from "bcrypt"
+import {compare, genSalt, hash} from "bcrypt"
 
 export const hashPassword = (password: string) =>
 	genSalt(10)

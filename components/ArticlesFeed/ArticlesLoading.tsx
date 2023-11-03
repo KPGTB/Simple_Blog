@@ -1,4 +1,5 @@
 import ArticleCard from "@/components/ArticleCard/ArticleCard"
+
 import styles from "./ArticlesFeed.module.scss"
 
 const ArticlesLoading = () => {

@@ -1,6 +1,8 @@
 import Link from "next/link"
-import styles from "./Footer.module.scss"
+
 import {stringToBool} from "@/utils/convert"
+
+import styles from "./Footer.module.scss"
 
 const Footer = ({font}: {font: string}) => {
 	return (

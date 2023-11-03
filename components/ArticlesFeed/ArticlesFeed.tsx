@@ -1,8 +1,8 @@
+import ArticleCard from "@/components/ArticleCard/ArticleCard"
+import {hasAccess} from "@/libs/credentials"
 import connect from "@/libs/mongodb"
 import Article, {ArticleType} from "@/models/Article"
-import {hasAccess} from "@/libs/credentials"
 import {UserRole} from "@/models/User"
-import ArticleCard from "@/components/ArticleCard/ArticleCard"
 
 import styles from "./ArticlesFeed.module.scss"
 

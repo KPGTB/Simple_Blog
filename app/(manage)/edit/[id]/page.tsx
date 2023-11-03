@@ -1,6 +1,7 @@
-import styles from "../../page.module.scss"
 import {getArticle} from "@/app/article/[id]/ArticleActions"
 import ArticleEditor from "@/components/ArticleEditor/ArticleEditor"
+
+import styles from "../../page.module.scss"
 
 export const dynamic = "force-dynamic"
 

@@ -1,11 +1,13 @@
-import styles from "../page.module.scss"
 import Link from "next/link"
-import PasswordValidator from "@/components/PasswordValidator/PasswordValidator"
-import {classesToClass} from "@/utils/convert"
-import Input from "@/components/Input/Input"
+
 import {Button} from "@/components/Button/Button"
 import ButtonAccent from "@/components/Button/ButtonAccent"
+import Input from "@/components/Input/Input"
+import PasswordValidator from "@/components/PasswordValidator/PasswordValidator"
 import {signUp} from "@/libs/credentials"
+import {classesToClass} from "@/utils/convert"
+
+import styles from "../page.module.scss"
 
 export const dynamic = "force-dynamic"
 

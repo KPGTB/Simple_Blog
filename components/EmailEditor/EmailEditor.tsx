@@ -1,13 +1,15 @@
-import styles from "./EmailEditor.module.scss"
-import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
+import {redirect} from "next/navigation"
+
 import {useEmail} from "@/hooks/useJsonData"
 import {stringToBool} from "@/utils/convert"
-import {redirect} from "next/navigation"
-import Input from "../Input/Input"
+
 import Editor from "../ArticleContentEditor/ArticleContentEditor"
-import PreviewInfo, {previewTitle} from "../PreviewInfo/PreviewInfo"
 import {Button} from "../Button/Button"
 import ButtonAccent from "../Button/ButtonAccent"
+import Input from "../Input/Input"
+import PreviewInfo, {previewTitle} from "../PreviewInfo/PreviewInfo"
+import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
+import styles from "./EmailEditor.module.scss"
 
 const EmailEditor = async () => {
 	const {email, setEmail} = await useEmail()

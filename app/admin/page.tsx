@@ -1,6 +1,7 @@
-import styles from "./page.module.scss"
-import UserEditor from "@/components/UsersEditor/UsersEditor"
 import EmailEditor from "@/components/EmailEditor/EmailEditor"
+import UserEditor from "@/components/UsersEditor/UsersEditor"
+
+import styles from "./page.module.scss"
 
 export const dynamic = "force-dynamic"
 

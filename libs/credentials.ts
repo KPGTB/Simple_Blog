@@ -1,11 +1,13 @@
+import {ObjectId} from "mongoose"
+import {redirect} from "next/navigation"
+
 import {useAuth} from "@/hooks/useAuth"
 import {User, UserRole} from "@/models/User"
 import {passwordRegex} from "@/utils/regex"
-import {ObjectId} from "mongoose"
-import {redirect} from "next/navigation"
-import connect from "./mongodb"
-import {generateActivationHash, sendActivationEmail} from "./mails"
+
 import {hashPassword} from "./bcrypt"
+import {generateActivationHash, sendActivationEmail} from "./mails"
+import connect from "./mongodb"
 
 export const hasAccess = async (...requiredRole: UserRole[]) => {
 	const {logged, role} = await useAuth()

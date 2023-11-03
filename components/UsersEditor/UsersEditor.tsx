@@ -1,12 +1,14 @@
+import {FaDownLong, FaTrash, FaUpLong} from "react-icons/fa6"
+
+import {UserRole} from "@/models/User"
 import {stringToBool} from "@/utils/convert"
+
+import {Button} from "../Button/Button"
+import ButtonAccent from "../Button/ButtonAccent"
+import HiddenId from "../HiddenId/HiddenId"
 import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
 import {demote, getUsers, promote, remove} from "./UserActions"
 import styles from "./UsersEditor.module.scss"
-import {UserRole} from "@/models/User"
-import HiddenId from "../HiddenId/HiddenId"
-import {Button} from "../Button/Button"
-import {FaDownLong, FaTrash, FaUpLong} from "react-icons/fa6"
-import ButtonAccent from "../Button/ButtonAccent"
 
 const UserEditor = async () => {
 	const accounts = await getUsers()

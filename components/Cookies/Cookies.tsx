@@ -1,10 +1,11 @@
-import {useState} from "react"
+import {cookies as useCookies} from "next/headers"
+import Link from "next/link"
+
+import {classesToClass} from "@/utils/convert"
+
 import {Button} from "../Button/Button"
 import ButtonAccent from "../Button/ButtonAccent"
 import styles from "./Cookies.module.scss"
-import {classesToClass} from "@/utils/convert"
-import Link from "next/link"
-import {cookies as useCookies} from "next/headers"
 
 const Cookies = ({font}: {font: string}) => {
 	const accept = useCookies().has("allowCookies")

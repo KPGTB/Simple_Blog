@@ -1,8 +1,9 @@
 "use server"
 
+import {redirect} from "next/navigation"
+
 import connect from "@/libs/mongodb"
 import {User, UserDataType, UserRole} from "@/models/User"
-import {redirect} from "next/navigation"
 
 export const getUsers = async () => {
 	await connect()

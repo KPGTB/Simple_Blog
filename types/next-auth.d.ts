@@ -1,6 +1,6 @@
-import {UserDataType} from "@/models/User"
-import NextAuth from "next-auth"
 import {JWT} from "next-auth/jwt"
+
+import {UserDataType} from "@/models/User"
 
 declare module "next-auth" {
 	interface Session extends DefaultSession {

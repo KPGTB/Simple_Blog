@@ -1,5 +1,5 @@
 "use client"
-import {useState, useEffect, DetailedHTMLProps, ImgHTMLAttributes} from "react"
+import {DetailedHTMLProps, ImgHTMLAttributes, useEffect, useState} from "react"
 
 const getImage = (hasError: boolean, loading: boolean, image: string) => {
 	if (loading) {

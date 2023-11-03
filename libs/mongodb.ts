@@ -1,7 +1,9 @@
-import {User, UserRole} from "@/models/User"
 import mongoose from "mongoose"
-import {hashPassword} from "./bcrypt"
+
+import {User, UserRole} from "@/models/User"
+
 import {stringToBool} from "../utils/convert"
+import {hashPassword} from "./bcrypt"
 
 let first = true
 

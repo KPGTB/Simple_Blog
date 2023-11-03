@@ -1,11 +1,13 @@
-import styles from "./page.module.scss"
-import Editor from "@/components/ArticleContentEditor/ArticleContentEditor"
 import {redirect} from "next/navigation"
-import {useTos} from "@/hooks/useJsonData"
-import PreviewInfo, {previewTitle} from "@/components/PreviewInfo/PreviewInfo"
+
+import Editor from "@/components/ArticleContentEditor/ArticleContentEditor"
 import {Button} from "@/components/Button/Button"
 import ButtonAccent from "@/components/Button/ButtonAccent"
+import PreviewInfo, {previewTitle} from "@/components/PreviewInfo/PreviewInfo"
+import {useTos} from "@/hooks/useJsonData"
 import {stringToBool} from "@/utils/convert"
+
+import styles from "./page.module.scss"
 
 export const dynamic = "force-dynamic"
 

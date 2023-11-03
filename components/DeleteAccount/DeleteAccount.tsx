@@ -1,12 +1,14 @@
+import {redirect} from "next/navigation"
+
 import {useAuth} from "@/hooks/useAuth"
+import connect from "@/libs/mongodb"
+import {User, UserRole} from "@/models/User"
+
 import {Button} from "../Button/Button"
 import ButtonAccent from "../Button/ButtonAccent"
 import Input from "../Input/Input"
 import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
 import styles from "./DeleteAccount.module.scss"
-import {User, UserRole} from "@/models/User"
-import {redirect} from "next/navigation"
-import connect from "@/libs/mongodb"
 
 const deleteAcc = async () => {
 	"use server"

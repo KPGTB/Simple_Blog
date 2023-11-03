@@ -1,9 +1,9 @@
 import Link from "next/link"
+import {FaUser} from "react-icons/fa"
 import {FaGear} from "react-icons/fa6"
 
-import styles from "./Header.module.scss"
 import {LinkButton, LoginButton, LogoutButton} from "../Button/Button"
-import {FaUser} from "react-icons/fa"
+import styles from "./Header.module.scss"
 
 const Header = ({
 	font,

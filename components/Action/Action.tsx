@@ -1,10 +1,11 @@
 "use client"
 
-import {classesToClass} from "@/utils/convert"
 import Link from "next/link"
+import {ButtonHTMLAttributes, DetailedHTMLProps} from "react"
+
+import {classesToClass} from "@/utils/convert"
 
 import styles from "./Action.module.scss"
-import {ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler} from "react"
 
 const ActionLink = ({
 	children,

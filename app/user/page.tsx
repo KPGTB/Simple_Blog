@@ -1,6 +1,7 @@
 import ChangePassword from "@/components/ChangePassword/ChangePassword"
-import styles from "./page.module.scss"
 import DeleteAccount from "@/components/DeleteAccount/DeleteAccount"
+
+import styles from "./page.module.scss"
 
 export const dynamic = "force-dynamic"
 

@@ -1,10 +1,12 @@
 "use client"
 
-import Link from "next/link"
-import styles from "./Button.module.scss"
 import {signIn, signOut} from "next-auth/react"
+import Link from "next/link"
 import {ButtonHTMLAttributes, DetailedHTMLProps} from "react"
+
 import {classesToClass} from "@/utils/convert"
+
+import styles from "./Button.module.scss"
 import ButtonAccent from "./ButtonAccent"
 
 const Button = ({

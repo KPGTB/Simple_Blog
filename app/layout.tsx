@@ -1,13 +1,14 @@
 import type {Metadata} from "next"
-import {Barlow_Condensed, Lato} from "next/font/google"
-import {UserRole} from "@/models/User"
-import Header from "@/components/Header/Header"
-import Footer from "@/components/Footer/Footer"
-import {useAuth} from "@/hooks/useAuth"
-
-import "./globals.scss"
 import "@/assets/editor_style.scss"
+import "./globals.scss"
+
+import {Barlow_Condensed, Lato} from "next/font/google"
+
 import Cookies from "@/components/Cookies/Cookies"
+import Footer from "@/components/Footer/Footer"
+import Header from "@/components/Header/Header"
+import {useAuth} from "@/hooks/useAuth"
+import {UserRole} from "@/models/User"
 
 const barlow = Barlow_Condensed({weight: "400", subsets: ["latin"]})
 const lato = Lato({weight: "400", subsets: ["latin"]})

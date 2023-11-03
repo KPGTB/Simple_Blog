@@ -3,7 +3,8 @@
 import {useEffect, useState} from "react"
 import {FaCheck} from "react-icons/fa"
 import {FaXmark} from "react-icons/fa6"
-import Input from "../Input/Input"
+
+import {classesToClass} from "@/utils/convert"
 import {
 	maxPasswordLen,
 	minPasswordLen,
@@ -13,8 +14,8 @@ import {
 	passwordSpecialRegex,
 	passwordUpperRegex,
 } from "@/utils/regex"
-import {classesToClass} from "@/utils/convert"
 
+import Input from "../Input/Input"
 import styles from "./PasswordValidator.module.scss"
 
 type ComponentProps = {
