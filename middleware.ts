@@ -23,6 +23,10 @@ export default withAuth(
 					return false
 				}
 
+				if (isOnlyForAuthorized(path)) {
+					return true
+				}
+
 				if (isOnlyForAdmin(path)) {
 					return token.userData.role === UserRole.ADMIN
 				}
@@ -35,6 +39,10 @@ export default withAuth(
 
 const isOnlyForUnauthorized = (path: string) => {
 	return path.startsWith("/auth")
+}
+
+const isOnlyForAuthorized = (path: string) => {
+	return path.startsWith("/user")
 }
 
 const isOnlyForAdmin = (path: string) => {
@@ -51,5 +59,7 @@ export const config = {
 		"/auth/signUp/activate/:hash*",
 		"/tos/edit",
 		"/admin",
+		"/user",
+		"/user/signout",
 	],
 }

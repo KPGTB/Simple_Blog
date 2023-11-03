@@ -1,5 +1,5 @@
 import styles from "./EmailEditor.module.scss"
-import AdminOptionContainer from "../AdminOptionContainer/AdminOptionContainer"
+import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
 import {useEmail} from "@/hooks/useJsonData"
 import {stringToBool} from "@/utils/convert"
 import {redirect} from "next/navigation"
@@ -31,7 +31,7 @@ const EmailEditor = async () => {
 	}
 
 	return (
-		<AdminOptionContainer>
+		<SettingsOptionContainer>
 			<h3>Activation Email</h3>
 
 			<form
@@ -59,7 +59,7 @@ const EmailEditor = async () => {
 					Save
 				</Button>
 			</form>
-		</AdminOptionContainer>
+		</SettingsOptionContainer>
 	)
 }
 export default EmailEditor

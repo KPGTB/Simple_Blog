@@ -18,9 +18,9 @@ import {classesToClass} from "@/utils/convert"
 import styles from "./PasswordValidator.module.scss"
 
 type ComponentProps = {
-	inputClass: string
-	inputPlaceholder: string
-	inputName: string
+	inputClass?: string
+	inputPlaceholder?: string
+	inputName?: string
 	required?: boolean
 }
 

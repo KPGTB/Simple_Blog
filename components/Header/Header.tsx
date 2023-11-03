@@ -3,6 +3,7 @@ import {FaGear} from "react-icons/fa6"
 
 import styles from "./Header.module.scss"
 import {LinkButton, LoginButton, LogoutButton} from "../Button/Button"
+import {FaUser} from "react-icons/fa"
 
 const Header = ({
 	font,
@@ -29,6 +30,11 @@ const Header = ({
 			</section>
 
 			<section className={styles.buttons}>
+				{logged && (
+					<LinkButton href="/user">
+						<FaUser />
+					</LinkButton>
+				)}
 				{admin && (
 					<LinkButton href="/admin">
 						<FaGear />

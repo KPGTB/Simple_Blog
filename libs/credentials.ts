@@ -39,18 +39,18 @@ export const signUp = async (data: FormData) => {
 	}
 
 	if (password !== password2) {
-		error("Passwords must be same!")
+		await error("Passwords must be same!")
 		return
 	}
 
 	if (name.length > 32 || name.length < 4) {
-		error("Name length must be between 4 and 32!")
+		await error("Name length must be between 4 and 32!")
 		return
 	}
 
 	const passCheck = new RegExp(passwordRegex)
 	if (!passCheck.test(password)) {
-		error("Passwords must be stronger!")
+		await error("Passwords must be stronger!")
 		return
 	}
 
@@ -62,7 +62,7 @@ export const signUp = async (data: FormData) => {
 
 	if (user !== null) {
 		if (user.activated) {
-			error("User with this email already exists")
+			await error("User with this email already exists")
 			return
 		} else {
 			await User.deleteOne({_id: user._id})

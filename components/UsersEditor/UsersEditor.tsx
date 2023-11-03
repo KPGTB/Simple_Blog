@@ -1,5 +1,5 @@
 import {stringToBool} from "@/utils/convert"
-import AdminOptionContainer from "../AdminOptionContainer/AdminOptionContainer"
+import SettingsOptionContainer from "../SettingsOptionContainer/SettingsOptionContainer"
 import {demote, getUsers, promote, remove} from "./UserActions"
 import styles from "./UsersEditor.module.scss"
 import {UserRole} from "@/models/User"
@@ -12,7 +12,7 @@ const UserEditor = async () => {
 	const accounts = await getUsers()
 
 	return (
-		<AdminOptionContainer>
+		<SettingsOptionContainer>
 			<h3>Users</h3>
 
 			<section className={styles.users}>
@@ -65,7 +65,7 @@ const UserEditor = async () => {
 					)
 				})}
 			</section>
-		</AdminOptionContainer>
+		</SettingsOptionContainer>
 	)
 }
 
