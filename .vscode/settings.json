@@ -6,7 +6,6 @@
 		"**/CVS": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true,
-		"node_modules": true,
 		".next": true,
 		".vscode": true,
 		".eslintrc.json": true,
@@ -14,10 +13,10 @@
 		"LICENSE": true,
 		"tsconfig.json": true,
 		"package-lock.json": true,
-		"next-env.d.ts": true
+		"next-env.d.ts": true,
+		"node_modules": true
 	},
 	"hide-files.files": [
-		"node_modules",
 		".next",
 		".vscode",
 		".eslintrc.json",
@@ -25,6 +24,7 @@
 		"LICENSE",
 		"tsconfig.json",
 		"package-lock.json",
-		"next-env.d.ts"
+		"next-env.d.ts",
+		"node_modules"
 	]
 }

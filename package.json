@@ -20,6 +20,7 @@
 		"react-dom": "^18",
 		"react-google-recaptcha": "^3.1.0",
 		"react-icons": "^4.11.0",
+		"react-loading-skeleton": "^3.3.1",
 		"sass": "^1.69.3"
 	},
 	"devDependencies": {

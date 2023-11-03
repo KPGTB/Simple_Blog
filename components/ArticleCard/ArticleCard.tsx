@@ -8,6 +8,9 @@ import styles from "./ArticleCard.module.scss"
 import {convertDate} from "@/utils/convert"
 import ButtonAccent from "../Button/ButtonAccent"
 
+import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
+
 const ArticleCard = ({article}: {article: ArticleType}) => {
 	return (
 		<section className={styles.article}>
@@ -41,6 +44,29 @@ const ArticleCard = ({article}: {article: ArticleType}) => {
 	)
 }
 
+const SkeletonArticle = () => {
+	return (
+		<section className={styles.articleLoading}>
+			<section className={styles.imageLoading}>
+				<Skeleton className={styles.imageSkeleton} />
+			</section>
+
+			<section className={styles.infoLoading}>
+				<section>
+					<Skeleton />
+				</section>
+				<section>
+					<Skeleton count={2} />
+				</section>
+			</section>
+			<Skeleton
+				count={2}
+				className={styles.titleLoading}
+			/>
+		</section>
+	)
+}
+
 const Add = () => {
 	return (
 		<Link
@@ -53,5 +79,6 @@ const Add = () => {
 }
 
 ArticleCard.Add = Add
+ArticleCard.Skeleton = SkeletonArticle
 
 export default ArticleCard
