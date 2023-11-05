@@ -38,15 +38,15 @@ const Cookies = ({font}: {font: string}) => {
 					you are okay with it.{" "}
 					<Link
 						href="/tos"
-						aria-label="Read Terms of Service"
+						aria-label="Read ToS"
 					>
-						Read More
+						Read ToS
 					</Link>
 				</p>
 			</section>
 			<Button
 				hover={ButtonAccent.YELLOW}
-				aria-label="Accept Cookies"
+				aria-label="Got it"
 			>
 				Got it
 			</Button>
