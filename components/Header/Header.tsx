@@ -20,7 +20,7 @@ const Header = ({
 				<Link
 					href={"/"}
 					className={styles.title}
-					aria-label="Home Page"
+					aria-label="Simple Blog Home Page"
 				>
 					<h1>Simple Blog</h1>
 				</Link>

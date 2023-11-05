@@ -34,7 +34,7 @@ const Footer = ({font}: {font: string}) => {
 				<a
 					target="blank"
 					href="https://github.com/KPGTB/Simple_Blog/blob/main/LICENSE"
-					aria-label="Simple Blog License"
+					aria-label="Apache 2.0 License"
 				>
 					Apache 2.0
 				</a>
