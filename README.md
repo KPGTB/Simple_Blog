@@ -1,20 +1,21 @@
-# .env
+# Simple Blog
 
-```
-MONGODB_URI=
-NEXTAUTH_SECRET=RANDOM HASH
-NEXTAUTH_URL=
-CREATE_ADMIN=true
-ADMIN_FULL=Administrator
-ADMIN_EMAIL=admin@simpleblog.org
-ADMIN_PASSWORD=admin
-SMTP_USER=
-SMTP_PASS=
-SMTP_HOST=
-SMTP_PORT=
-SMTP_SECURE=
-SMTP_SENDER=
-RECAPTCHA_SECRET=
-RECAPTCHA_PUBLIC=
-PREVIEW=TRUE
-```
+Simple Blog is a web application that works like blog. It is created using NextJS and handles authentication, email verification, handy articles editor and much more.
+
+[Preview Version](https://simpleblog.kpgtb.pl)
+
+**NOTE: Preview mode is limited and doesn't allow modifying website content**
+
+## Requirements
+
+-   [NodeJS](https://nodejs.org/en/download)
+-   Any SMTP server (to handle email verification)
+-   MongoDB (to store data)
+
+## Documentation
+
+Documentation is available [here](https://docs.kpgtb.pl)
+
+## License
+
+Simple Blog is licensed under Apache 2.0
