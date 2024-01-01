@@ -1,1 +1,4 @@
-{"title":"Simple Blog - Account Activation","content":"<p>Please activate your account using link below</p><p>&nbsp;</p><p><a href=\"{LINK}\">Activate</a></p><p>&nbsp;</p><p><i><strong>Sent using preview version of Simple Blog created by KPG-TB</strong></i></p>"}
+{
+	"title": "Simple Blog - Account Activation",
+	"content": "<p>Please activate your account using link below</p><p>&nbsp;</p><p><a href=\"{LINK}\">Activate</a></p><p>&nbsp;</p><p><i><strong>Sent using preview version of Simple Blog created by KPG-TB</strong></i></p>"
+}

@@ -30,7 +30,7 @@ const Footer = ({font}: {font: string}) => {
 				>
 					KPG-TB
 				</a>{" "}
-				2023 &copy; Licensed under{" "}
+				2023 - {new Date().getFullYear()} &copy; Licensed under{" "}
 				<a
 					target="blank"
 					href="https://github.com/KPGTB/Simple_Blog/blob/main/LICENSE"
