@@ -2,7 +2,7 @@
 
 Simple Blog is a web application that works like blog. It is created using NextJS and handles authentication, email verification, handy articles editor and much more.
 
-[Preview Version](https://simpleblog.kpgtb.pl)
+[Preview Version](https://simpleblog.kpgtb.eu)
 
 **NOTE: Preview mode is limited and doesn't allow modifying website content**
 
@@ -14,7 +14,7 @@ Simple Blog is a web application that works like blog. It is created using NextJ
 
 ## Documentation
 
-Documentation is available [here](https://docs.kpgtb.pl)
+Documentation is available [here](https://docs.kpgtb.eu)
 
 ## License
 
