@@ -8,6 +8,7 @@ import connect from "@/libs/mongodb"
 import {User} from "@/models/User"
 
 const authOptions = {
+	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
 		Credentials({
 			name: "E-Mail",
